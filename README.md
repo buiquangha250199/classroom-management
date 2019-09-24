@@ -1,2 +1,2 @@
 # classroom-management
-A program that makes management in classroom easier.
+A program that makes easier in managing classroom
