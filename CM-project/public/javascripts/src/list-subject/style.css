@@ -1,0 +1,88 @@
+list-subject .float-right {
+	float: right;
+}
+
+list-subject .text-center{
+	text-align: center;
+}
+
+
+list-subject span.span-head{
+	margin: 50px;
+}
+
+list-subject table#data-table, table#normal-table {
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+list-subject table,list-subject  th,list-subject  td {
+  border: 1px solid black;
+  border-collapse: collapse;
+text-align: center;
+}
+
+list-subject th, td {
+	font-size: 16px;
+  padding: 15px;
+}
+
+list-subject th {
+	background-color: #e0ebeb;
+}	
+
+
+list-subject div.card {
+	width: 60%;
+	margin: 0 auto;
+	padding: 0 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+list-subject label {
+  display: inline-block;
+}
+
+list-subject .col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+  text-align: left;
+}
+
+list-subject .col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+list-subject .form-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+list-subject input[type=text],list-subject input[type=number],list-subject select.form-select{
+	width: 90%;
+	padding: 12px;
+}
+
+
+list-subject input[type=submit] {
+	background-color: DodgerBlue;
+	margin-top: 6px;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+list-subject footer {
+	position: relative;
+	bottom: 0;
+	left: 0;
+}

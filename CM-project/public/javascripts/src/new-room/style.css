@@ -1,0 +1,87 @@
+new-room .float-right {
+	float: right;
+}
+
+new-room .text-center{
+	text-align: center;
+}
+
+
+new-room span.span-head{
+	margin: 50px;
+}
+
+new-room table#data-table, table#normal-table {
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+new-room table,new-room  th,new-room  td {
+  border: 1px solid black;
+  border-collapse: collapse;
+text-align: center;
+}
+
+new-room th, td {
+	font-size: 16px;
+  padding: 15px;
+}
+
+new-room th {
+	background-color: #e0ebeb;
+}	
+
+
+new-room div.card {
+	width: 60%;
+	margin: 0 auto;
+	padding: 0 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+new-room label {
+  display: inline-block;
+}
+
+new-room .col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+  text-align: left;
+}
+
+new-room .col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+new-room .form-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+new-room input[type=text],new-room input[type=number],new-room select.form-select{
+	width: 90%;
+	padding: 12px;
+}
+
+new-room input[type=submit] {
+	background-color: DodgerBlue;
+	margin-top: 6px;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+new-room footer {
+	position: relative;
+	bottom: 0;
+	left: 0;
+}

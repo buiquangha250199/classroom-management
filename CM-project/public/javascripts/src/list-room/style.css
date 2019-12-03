@@ -1,0 +1,87 @@
+list-room .float-right {
+	float: right;
+}
+
+list-room .text-center{
+	text-align: center;
+}
+
+
+list-room span.span-head{
+	margin: 50px;
+}
+
+list-room table#data-table, table#normal-table {
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+list-room table,list-room  th,list-room  td {
+  border: 1px solid black;
+  border-collapse: collapse;
+text-align: center;
+}
+
+list-room th, td {
+	font-size: 16px;
+  padding: 15px;
+}
+
+list-room th {
+	background-color: #e0ebeb;
+}	
+
+
+list-room div.card {
+	width: 60%;
+	margin: 0 auto;
+	padding: 0 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+list-room label {
+  display: inline-block;
+}
+
+list-room .col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+  text-align: left;
+}
+
+list-room .col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+list-room .form-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+list-room input[type=text],list-room input[type=number],list-room select.form-select{
+	width: 90%;
+	padding: 12px;
+}
+
+list-room input[type=submit] {
+	background-color: DodgerBlue;
+	margin-top: 6px;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+list-room footer {
+	position: relative;
+	bottom: 0;
+	left: 0;
+}
