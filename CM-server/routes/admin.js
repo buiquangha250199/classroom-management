@@ -9,6 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
  router.get('/test', adminController.testAdmin) ;
+  router.get('/tong', adminController.totalClass) ;
+
 // router.post('/user/create',adminController.createNewUser);
 // router.get('/user/find',adminController.findUserByID);
 // router.put('/user/update',adminController.updateUser);
