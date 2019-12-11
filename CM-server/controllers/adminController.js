@@ -11,6 +11,23 @@ module.exports = {
 	testAdmin: function(req, res, next) {
 		adminModel.findAll().then(books =>
         res.json(books));
+    },
+    totalClass: function(req, res, next) {
+    	lopmonhocModel.count().then(result =>
+    	res.json(result));
+    },
+    totalRoom: function(req, res, next) {
+    	phonghocModel.count().then(result =>
+    	res.json(result));
+    },
+    totalLecturals: function(req, res, next) {
+    	giangvienModel.count().then(result =>
+    	res.json(result));
+    },
+    totalStudent: function(req, res, next) {
+    	res
     }
+
+
 
 }
