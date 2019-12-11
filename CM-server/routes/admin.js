@@ -8,6 +8,10 @@ router.get('/', function(req, res, next) {
     res.send('test');
 });
 
+router.get('/', function(req, res, next) {
+    res.send('tong');
+});
+
  router.get('/test', adminController.testAdmin) ;
   router.get('/tong', adminController.totalClass) ;
 
@@ -17,8 +21,8 @@ router.get('/', function(req, res, next) {
 // router.get('/user/delete', adminController.deleteUser);
 
 
-// // shift
 
+// // shift
 
 
 
