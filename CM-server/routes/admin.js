@@ -13,7 +13,8 @@ router.get('/', function(req, res, next) {
 });
 
  router.get('/test', adminController.testAdmin) ;
-  router.get('/tong', adminController.totalClass) ;
+  router.get('/tong', adminController.activeRoom) ;
+  router.post('/room', adminController.editRoom);
 
 // router.post('/user/create',adminController.createNewUser);
 // router.get('/user/find',adminController.findUserByID);
