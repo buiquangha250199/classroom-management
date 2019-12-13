@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
  router.get('/test', adminController.testAdmin) ;
-// router.post('/user/create',adminController.createNewUser);
+//router.post('/room/new',adminController.createNewRoom);
 // router.get('/user/find',adminController.findUserByID);
 // router.put('/user/update',adminController.updateUser);
 // router.get('/user/delete', adminController.deleteUser);

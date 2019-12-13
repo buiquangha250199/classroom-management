@@ -23,4 +23,4 @@ SinhVien.belongsToMany(LopMonHoc, {through: 'ghidanh', foreignKey: 'IDSV'});
 sequelize.sync({ force: false })
   .then(() => {
     console.log(`Database & tables created here!`)
-  });
+ });

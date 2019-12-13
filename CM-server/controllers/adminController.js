@@ -9,8 +9,11 @@ const timeslotModel = require('../models/timeslot.js');
 
 module.exports = {
 	testAdmin: function(req, res, next) {
-		adminModel.findAll().then(books =>
-        res.json(books));
-    }
+		adminModel.findAll().then(results =>
+        res.json(results));
+    },
+
+
+
 
 }
