@@ -28,6 +28,4 @@ PhongHoc.init({
 	sequelize,
 });
 
-PhongHoc.hasMany(TimeSlot, {foreignKey: 'Phong'});
-
 module.exports = PhongHoc;

@@ -3,8 +3,6 @@ const Sequelize = require('sequelize');
 const Model = Sequelize.Model;
 const sequelize = require('../config/sequelize.js');
 
-const LopMonHoc = require('../models/LopMonHoc.js');
-
 class GiangVien extends Model {}
 GiangVien.init({
 	IDGV:{
@@ -32,7 +30,5 @@ GiangVien.init({
 },{
 	sequelize,
 });
-
-GiangVien.hasMany(LopMonHoc, {foreignKey: 'GiangVien'});
 
 module.exports = GiangVien;

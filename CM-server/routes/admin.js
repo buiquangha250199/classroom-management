@@ -12,9 +12,15 @@ router.get('/', function(req, res, next) {
     res.send('tong');
 });
 
- router.get('/test', adminController.testAdmin) ;
-  router.get('/tong', adminController.activeRoom) ;
-  router.post('/room', adminController.allClassTime);
+  router.get('/activeRoom', adminController.activeRoom) ;
+  router.post('/deleteClass', adminController.deleteClass);
+  router.post('/editClass', adminController.editClass);
+  router.post('/roomUseCase', adminController.roomUseCase);
+  router.post('/allClassTime', adminController.allClassTime);
+  router.post('/newTimeSlot', adminController.newTimeSlot);
+
+  router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
+
 
 // router.post('/user/create',adminController.createNewUser);
 // router.get('/user/find',adminController.findUserByID);

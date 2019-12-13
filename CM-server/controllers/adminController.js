@@ -1,3 +1,5 @@
+const sequelize = require('../config/sequelize.js');
+
 const adminModel = require('../models/admin.js');
 const giangvienModel = require('../models/giangvien.js');
 const kyhocModel = require('../models/kyhoc.js');
@@ -6,13 +8,12 @@ const phonghocModel = require('../models/phonghoc.js');
 const sinhvienModel = require('../models/sinhvien.js');
 const taikhoanModel = require('../models/taikhoan.js');
 const timeslotModel = require('../models/timeslot.js');
+
 const database = require('../config/database.js');
 
+
+
 module.exports = {
-	testAdmin: function(req, res, next) {
-		adminModel.findAll().then(books =>
-        res.json(books));
-    },
     totalClass: function(req, res, next) {
     	lopmonhocModel.count().then(result =>
     	res.json(result));
@@ -101,14 +102,36 @@ module.exports = {
     		}
     	}).then(result =>res.json(result));
     },
+    //TaoTKB
     allClassTime: function(req, res, next) {
+        lopmonhocModel.hasMany(timeslotModel, {foreignKey: 'TinhTrangTimeSlot', sourceKey: 'IDLop'});
     	lopmonhocModel.findAll({
     		include:[{
     			model: timeslotModel
-    		}],
-    		attributes: ['MaLop', 'TenMon', 'GiangVien', 'TimeSlots.Phong', 'TimeSlots.Thu', 'TimeSlots.Tiet']
+    		}]
     	}).then(result =>res.json(result));
-    }
+    },
 
+    newTimeSlot: function(req, res, next) {
+        var i;
+        for (i= req.body.tietbd; i<= req.body.tietkt; i++){
+            timeslotModel.create({
+            KyHoc: req.body.kyhoc,
+            Thu: req.body.thu,
+            Tiet: i,
+            Phong: req.body.phong,
+            TinhTrangTimeSlot: req.body.lop
+            }).then();
+        }
+        
+    },
+    deleteTimeSlot: function(req, res, next) {
+        timeslotModel.destroy({
+            where: {
+            TinhTrangTimeSlot: req.body.lop
+            }
+        }).then(result =>res.json(result));
+    },
+ 
 
 }
