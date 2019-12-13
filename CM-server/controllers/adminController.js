@@ -6,6 +6,7 @@ const phonghocModel = require('../models/phonghoc.js');
 const sinhvienModel = require('../models/sinhvien.js');
 const taikhoanModel = require('../models/taikhoan.js');
 const timeslotModel = require('../models/timeslot.js');
+const database = require('../config/database.js');
 
 module.exports = {
 	testAdmin: function(req, res, next) {
@@ -36,7 +37,7 @@ module.exports = {
     	timeslotModel.count({distinct: true, col: 'TinhTrangTimeSlot'}).then(result =>
     	res.json(result));
     },
-    
+
     newRoom: function(req, res, next) {
     	phonghocModel.create({
     	TenPhong: req.body.ten, 
@@ -93,7 +94,6 @@ module.exports = {
     	}).then(result =>res.json(result));
     },
 
-
     roomUseCase: function(req, res, next) {
     	timeslotModel.findAll({
     		where:{
@@ -101,7 +101,14 @@ module.exports = {
     		}
     	}).then(result =>res.json(result));
     },
-    showTimeSlot: function
+    allClassTime: function(req, res, next) {
+    	lopmonhocModel.findAll({
+    		include:[{
+    			model: timeslotModel
+    		}],
+    		attributes: ['MaLop', 'TenMon', 'GiangVien', 'TimeSlots.Phong', 'TimeSlots.Thu', 'TimeSlots.Tiet']
+    	}).then(result =>res.json(result));
+    }
 
 
 }

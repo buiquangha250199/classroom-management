@@ -3,6 +3,10 @@ const Sequelize = require('sequelize');
 const Model = Sequelize.Model;
 const sequelize = require('../config/sequelize.js');
 
+const Admin = require('../models/Admin.js');
+const GiangVien = require('../models/GiangVien.js');
+const SinhVien = require('../models/SinhVien.js');
+
 class TaiKhoan extends Model {}
 TaiKhoan.init({
 	ID:{
@@ -18,5 +22,9 @@ TaiKhoan.init({
 },{
 	sequelize
 });
+
+TaiKhoan.hasOne(Admin, {foreignKey: 'IDAd'});
+TaiKhoan.hasOne(GiangVien, {foreignKey: 'IDGV'});
+TaiKhoan.hasOne(SinhVien, {foreignKey: 'IDSV'});
 
 module.exports = TaiKhoan;

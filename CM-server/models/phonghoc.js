@@ -3,6 +3,8 @@ const Sequelize = require('sequelize');
 const Model = Sequelize.Model;
 const sequelize = require('../config/sequelize.js');
 
+const TimeSlot = require('../models/TimeSlot.js');
+
 class PhongHoc extends Model {}
 PhongHoc.init({
 	IDPhong:{
@@ -25,5 +27,7 @@ PhongHoc.init({
 },{
 	sequelize,
 });
+
+PhongHoc.hasMany(TimeSlot, {foreignKey: 'Phong'});
 
 module.exports = PhongHoc;

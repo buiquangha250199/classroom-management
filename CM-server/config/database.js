@@ -9,16 +9,18 @@ const TimeSlot = require('../models/TimeSlot.js');
 const KyHoc = require('../models/Kyhoc.js');
 const PhongHoc = require('../models/PhongHoc.js');
 
+/*
 TaiKhoan.hasOne(Admin, {foreignKey: 'IDAd'});
 TaiKhoan.hasOne(GiangVien, {foreignKey: 'IDGV'});
 TaiKhoan.hasOne(SinhVien, {foreignKey: 'IDSV'});
-LopMonHoc.hasOne(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
+LopMonHoc.hasMany(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
 KyHoc.hasMany(TimeSlot, {foreignKey: 'KyHoc'});
 KyHoc.hasMany(LopMonHoc, {foreignKey: 'KyHoc'});
 PhongHoc.hasMany(TimeSlot, {foreignKey: 'Phong'});
 GiangVien.hasMany(LopMonHoc, {foreignKey: 'GiangVien'});
 LopMonHoc.belongsToMany(SinhVien, {through: 'ghidanh', foreignKey: 'IDLop'});
-SinhVien.belongsToMany(LopMonHoc, {through: 'ghidanh', foreignKey: 'IDSV'});
+SinhVien.belongsToMany(LopMonHoc, {through: 'ghidanh', foreignKey: 'IDSV'});	
+*/
 
 sequelize.sync({ force: false })
   .then(() => {
