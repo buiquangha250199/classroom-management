@@ -74,7 +74,20 @@ module.exports = {
 
     //danh sach lop mon hoc
     allCourse: function(req, res, next) {
-        Course.findAll().then(result =>
+        Course.belongsTo(Semester, {foreignKey: 'IDSemester'});
+        Course.belongsTo(Lecturer, {foreignKey: 'IDLecturer'});
+        Course.findAll({
+            include: [
+                {
+                    model: Semester,                 
+                    attributes: ['SemesterName']
+                },
+                {
+                    model: Lecturer,
+                    attributes: ['Name']
+                }
+            ]
+            }).then(result =>
         res.json(result))
         .catch(function (err) {
         // handle error;

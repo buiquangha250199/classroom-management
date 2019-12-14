@@ -10,10 +10,15 @@ router.get('/', function(req, res, next) {
 
   router.get('/totalRoom', adminController.totalRoom);
   router.get('/totalClass', adminController.totalCourse);
+  
+  router.post('/allRoom', adminController.allRoom);
+  router.post('/allLecturer', adminController.allLecturer);
+  router.post('/allCourse', adminController.allCourse);
+
   router.post('/deleteClass', adminController.deleteCourse);
   router.post('/editClass', adminController.editCourse);
   router.post('/roomUseCase', adminController.roomUseCase);
-  router.post('/allClassTime', adminController.allCourseTime);
+  router.post('/allCourseTime', adminController.allCourseTime);
   router.post('/newTimeSlot', adminController.newTimeSlot);
 
   router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
