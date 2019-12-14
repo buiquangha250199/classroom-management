@@ -11,8 +11,6 @@ const timeslotModel = require('../models/timeslot.js');
 
 const database = require('../config/database.js');
 
-
-
 module.exports = {
     totalClass: function(req, res, next) {
     	lopmonhocModel.count().then(result =>
@@ -132,6 +130,24 @@ module.exports = {
             }
         }).then(result =>res.json(result));
     },
+    editTimeSlot: function(req, res, next) {
+        lopmonhocModel.hasMany(timeslotModel, {foreignKey: 'TinhTrangTimeSlot'});
+        timeslotModel.destroy({
+            where: {
+            TinhTrangTimeSlot: req.body.lop
+            }
+        }).then();
+        var i;
+        for (i= req.body.tietbd; i<= req.body.tietkt; i++){
+            timeslotModel.create({
+            KyHoc: req.body.kyhoc,
+            Thu: req.body.thu,
+            Tiet: i,
+            Phong: req.body.phong,
+            TinhTrangTimeSlot: req.body.lop
+            }).then();
+        }
+    }
  
 
 }
