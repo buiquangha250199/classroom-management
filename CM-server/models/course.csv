@@ -1,0 +1,22 @@
+IDCourse,CourseName,SubjectName,IDLecturer,IDSemester,TotalStudent,Note
+1,INT3307 20,An toàn và an ninh mạng(*),1000001,2,20,T.Anh
+2,INT3406 20,Xử lý ngôn ngữ tự nhiên(*),1000002,2,20,T.Anh
+3,INT3404 20,Xử lý ảnh(*),1000003,2,20,T.Anh
+4,PES 1030 11,Bóng bàn 1,1000004,2,20,CL
+5,PES 1030 12,Bóng bàn 1,1000005,2,20,CL
+6,INT3121 20,Các chuyên đề trong KHMT,1000006,2,20,CL
+7,ELT3110 23,Quang điện tử,1000007,2,20,T.Anh
+8,ELT3099 23,Các phương pháp xử lý tín hiệu (*),1000008,2,20,T.Anh
+9,INT3011 21,Các vấn đề hiện đại trong KHMT (*),1000001,2,20,T.Anh
+10,INT3011 22,Các vấn đề hiện đại trong KHMT (*),1000002,2,20,T.Anh
+11,PES 1035 9,Cầu lông,1000003,2,20,CL
+12,PES 1035 10,Cầu lông,1000004,2,20,CL
+13,INT2043 24,Cấu trúc dữ liệu và giải thuật,1000005,2,20,CL
+14,INT2203 23,Cấu trúc dữ liệu và giải thuật (*),1000006,2,20,T.Anh
+15,ELT2028 24,Chuyên nghiệp trong Công nghệ,1000007,2,20,CL
+16,ELT2028 25,Chuyên nghiệp trong Công nghệ,1000008,2,20,CL
+17,INT3132 20,Dự án Công nghệ,1000019,2,20,CL
+18,INT3111 20,Quản lý dự án phần mềm (*),1000015,2,20,CL
+19,INT3131 20,Dự án khoa học,1000012,2,20,CL
+20,INT1008 28,Nhập môn lập trình,1000012,2,20,CL
+21,HIS1002 24,Đường lối cách mạng của Đảng Cộng sản Việt Nam,1000011,2,20,CL
