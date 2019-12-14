@@ -12,31 +12,78 @@ const Room = require('../models/Room.js');
 const database = require('../config/database.js');
 
 module.exports = {
-    totalClass: function(req, res, next) {
-    	Course.count().then(result =>
-    	res.json(result));
-    },
+    //so phong hoc
     totalRoom: function(req, res, next) {
     	Room.count().then(result =>
     	res.json(result));
     },
-    totalLecturals: function(req, res, next) {
+    //so lop mon hoc
+    totalCourse: function(req, res, next) {
+        Course.count().then(result =>
+        res.json(result));
+    },
+    //so giang vien
+    totalLecturer: function(req, res, next) {
     	Lecturer.count().then(result =>
     	res.json(result));
     },
+
+    //so sinh vien
     totalStudent: function(req, res, next) {
     	Student.count().then(result =>
     	res.json(result));
     },
-    activeRoom: function(req, res, next) {
-    	Room.count({where: {InUse: 1}}).then(result =>
-    	res.json(result));
-    },
-    arrangedClass: function(req, res, next) {
-    	TimeSlot.count({distinct: true, col: 'IDCourse'}).then(result =>
-    	res.json(result));
+
+    //danh sach phong
+    allRoom: function(req, res, next) {
+        Room.findAll().then(result =>
+        res.json(result));
     },
 
+    //danh sach giang vien
+    allLecturer: function(req, res, next) {
+        Lecturer.findAll().then(result =>
+        res.json(result));
+    },
+
+    //danh sach lop mon hoc
+    allCourse: function(req, res, next) {
+        Course.findAll().then(result =>
+        res.json(result));
+    },
+
+    //them xoa sua lop mon hoc
+    newCourse: function(req, res, next) {
+        Course.create({
+        CourseName: req.body.malop, 
+        SubjectName: req.body.tenmon, 
+        Lecturer: req.body.giangvien,
+        Semester: req.body.kyhoc,
+        TotalStudent: req.body.siso,
+        Note: req.body.ghichu
+        }).then(result =>res.json(result));
+    },
+    deleteCourse: function(req, res, next) {
+        Course.destroy({
+            where: {
+                IDCourse: req.body.id
+            }
+        }).then(result =>res.json(result));
+    },
+    editCourse: function(req, res, next) {
+        Course.update({
+        CourseName: req.body.malop, 
+        SubjectName: req.body.tenmon, 
+        Lecturer: req.body.giangvien,
+        Semester: req.body.kyhoc,
+        TotalStudent: req.body.siso,
+        Note: req.body.ghichu
+        },{ 
+            where: {IDCourse: req.body.id}
+        }).then(result =>res.json(result));
+    },
+
+    // them xoa sua phong hoc
     newRoom: function(req, res, next) {
     	Room.create({
     	RoomName: req.body.ten, 
@@ -63,36 +110,7 @@ module.exports = {
     	}).then(result =>res.json(result));
     },
 
-    newCourse: function(req, res, next) {
-    	Course.create({
-    	CourseName: req.body.malop, 
-    	SubjectName: req.body.tenmon, 
-    	Lecturer: req.body.giangvien,
-    	Semester: req.body.kyhoc,
-    	TotalStudent: req.body.siso,
-    	Note: req.body.ghichu
-    	}).then(result =>res.json(result));
-    },
-    deleteCourse: function(req, res, next) {
-    	Course.destroy({
-			where: {
-				IDCourse: req.body.id
-			}
-		}).then(result =>res.json(result));
-    },
-    editCourse: function(req, res, next) {
-    	Course.update({
-    	CourseName: req.body.malop, 
-        SubjectName: req.body.tenmon, 
-        Lecturer: req.body.giangvien,
-        Semester: req.body.kyhoc,
-        TotalStudent: req.body.siso,
-        Note: req.body.ghichu
-    	},{	
-	    	where: {IDCourse: req.body.id}
-    	}).then(result =>res.json(result));
-    },
-
+    // timeslot cua phong
     roomUseCase: function(req, res, next) {
     	TimeSlot.findAll({
     		where:{
@@ -101,7 +119,7 @@ module.exports = {
     	}).then(result =>res.json(result));
     },
     
-    //TaoTKB
+    // danh sach lop mon hoc va time slot cua no(tao tkb)
     allCourseTime: function(req, res, next) {
         Course.hasMany(TimeSlot, {foreignKey: 'IDCourse', sourceKey: 'IDCourse'});
     	Course.findAll({
@@ -111,6 +129,7 @@ module.exports = {
     	}).then(result =>res.json(result));
     },
 
+    //them, xoa, sua timeslot
     newTimeSlot: function(req, res, next) {
         var i;
         for (i= req.body.tietbd; i<= req.body.tietkt; i++){
