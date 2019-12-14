@@ -63,7 +63,7 @@ module.exports = {
     	}).then(result =>res.json(result));
     },
 
-    newClass: function(req, res, next) {
+    newCourse: function(req, res, next) {
     	Course.create({
     	CourseName: req.body.malop, 
     	SubjectName: req.body.tenmon, 
@@ -73,14 +73,14 @@ module.exports = {
     	Note: req.body.ghichu
     	}).then(result =>res.json(result));
     },
-    deleteClass: function(req, res, next) {
+    deleteCourse: function(req, res, next) {
     	Course.destroy({
 			where: {
 				IDCourse: req.body.id
 			}
 		}).then(result =>res.json(result));
     },
-    editClass: function(req, res, next) {
+    editCourse: function(req, res, next) {
     	Course.update({
     	CourseName: req.body.malop, 
         SubjectName: req.body.tenmon, 
