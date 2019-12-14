@@ -1,0 +1,21 @@
+new-room #page-inner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: transparent;
+    min-height: 500px;
+}
+
+new-room .row {
+    margin-right: -15px;
+    margin-left: -15px;
+    width: 600px;
+}
+
+new-room .text-center {
+    text-align: center;
+    margin-bottom: 25px;
+    color: chocolate;
+}
