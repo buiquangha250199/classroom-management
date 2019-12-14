@@ -1,4 +1,4 @@
-module.exports = function (reqModel) { 
+module.exports = function (reqModel, path) { 
 
     var fs = require('fs'),
       async = require('async'),
@@ -7,7 +7,7 @@ module.exports = function (reqModel) {
   const model = require('../models/'+ reqModel +'.js');
 
    
-  var input = fs.createReadStream('./models/'+ reqModel +'.csv');
+  var input = fs.createReadStream(path);
   var parser = csv.parse({
     columns: true,
     relax: true

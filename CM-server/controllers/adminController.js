@@ -207,7 +207,8 @@ module.exports = {
             {
                 model: Lecturer,
                 attributes: ['Name']
-            }]
+            }
+            ]
     	}).then(result =>res.json(result))
         .catch(function (err) {
         // handle error;
@@ -274,7 +275,7 @@ module.exports = {
         res.send('success');
     },
     importFromCSV: function(req, res, next) {
-        importCSV(req.body.model);
+        importCSV(req.body.model, req.file.path);
         res.send('success');
     }
 
