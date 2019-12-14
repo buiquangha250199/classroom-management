@@ -1,30 +1,28 @@
 const Sequelize = require('sequelize');
-
 const Model = Sequelize.Model;
 const sequelize = require('../config/sequelize.js');
 
-class LopMonHoc extends Model {}
-LopMonHoc.init({
-	IDLop:{
+class Room extends Model {}
+Room.init({
+	IDRoom:{
 		type: Sequelize.INTEGER,
 		primaryKey: true,
 		autoIncrement: true
 	},
-	MaLop:{
+	RoomName:{
 		type: Sequelize.STRING
 	},
-	TenMon:{
+	Address:{
 		type: Sequelize.STRING
 	},
-	SiSo:{
+	InUse:{
+		type: Sequelize.STRING
+	},
+	Capacity:{
 		type: Sequelize.INTEGER
-	},
-	GhiChu:{
-		type: Sequelize.STRING
 	}
-
 },{
 	sequelize,
 });
 
-module.exports = LopMonHoc;
+module.exports = Room;

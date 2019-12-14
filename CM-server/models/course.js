@@ -1,29 +1,29 @@
 const Sequelize = require('sequelize');
-
 const Model = Sequelize.Model;
 const sequelize = require('../config/sequelize.js');
 
-class PhongHoc extends Model {}
-PhongHoc.init({
-	IDPhong:{
+class Course extends Model {}
+Course.init({
+	IDCourse:{
 		type: Sequelize.INTEGER,
 		primaryKey: true,
 		autoIncrement: true
 	},
-	TenPhong:{
+	CourseName:{
 		type: Sequelize.STRING
 	},
-	DiaChi:{
+	SubjectName:{
 		type: Sequelize.STRING
 	},
-	TinhTrangPhong:{
-		type: Sequelize.INTEGER //0: Baotri 1: Sudung
-	},
-	SucChua:{
+	TotalStudent:{
 		type: Sequelize.INTEGER
+	},
+	Note:{
+		type: Sequelize.STRING
 	}
+
 },{
 	sequelize,
 });
 
-module.exports = PhongHoc;
+module.exports = Course;

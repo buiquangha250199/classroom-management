@@ -8,15 +8,28 @@ router.get('/', function(req, res, next) {
     res.send('test');
 });
 
- router.get('/test', adminController.testAdmin) ;
-//router.post('/room/new',adminController.createNewRoom);
+router.get('/', function(req, res, next) {
+    res.send('tong');
+});
+
+  router.get('/activeRoom', adminController.activeRoom) ;
+  router.post('/deleteClass', adminController.deleteClass);
+  router.post('/editClass', adminController.editClass);
+  router.post('/roomUseCase', adminController.roomUseCase);
+  router.post('/allClassTime', adminController.allClassTime);
+  router.post('/newTimeSlot', adminController.newTimeSlot);
+
+  router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
+
+
+// router.post('/user/create',adminController.createNewUser);
 // router.get('/user/find',adminController.findUserByID);
 // router.put('/user/update',adminController.updateUser);
 // router.get('/user/delete', adminController.deleteUser);
 
 
-// // shift
 
+// // shift
 
 
 

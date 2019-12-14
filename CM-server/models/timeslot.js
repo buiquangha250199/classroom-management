@@ -5,19 +5,19 @@ const sequelize = require('../config/sequelize.js');
 
 class TimeSlot extends Model {}
 TimeSlot.init({
-	Thu:{
+	Day:{
 		type: Sequelize.INTEGER,
 		primaryKey: true
 	},
-	Tiet:{
+	Period:{
 		type: Sequelize.INTEGER,
 		primaryKey: true
 	},
-	KyHoc:{
+	IDSemester:{
 		type: Sequelize.INTEGER,
 		primaryKey: true
 	},
-	Phong:{
+	IDRoom:{
 		type: Sequelize.INTEGER,
 		primaryKey: true
 	}

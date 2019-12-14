@@ -2,16 +2,17 @@ const Sequelize = require('sequelize');
 const Model = Sequelize.Model;
 const sequelize = require('../config/sequelize.js');
 
+
 class Admin extends Model {}
 Admin.init({
-	IDAd:{
+	IDAdmin:{
 		type: Sequelize.INTEGER,
 		primaryKey:true,
 	},
-	Ten:{
+	Name:{
 		type: Sequelize.STRING
 	},
-	SDT:{
+	Phone:{
 		type: Sequelize.INTEGER.UNSIGNED.ZEROFILL
 	},
 	Email:{

@@ -1,26 +1,25 @@
 const Sequelize = require('sequelize');
-
 const Model = Sequelize.Model;
 const sequelize = require('../config/sequelize.js');
 
-class KyHoc extends Model {}
-KyHoc.init({
-	IDKyHoc:{
+class Semester extends Model {}
+Semester.init({
+	IDSemester:{
 		type: Sequelize.INTEGER,
 		primaryKey: true,
 		autoIncrement: true
 	},
-	TenKyHoc:{
+	SemesterName:{
 		type: Sequelize.STRING
 	},
-	ThoiGianBatDau:{
+	StartDate:{
 		type: Sequelize.DATEONLY
 	},
-	ThoiGianKetThuc:{
+	EndDate:{
 		type: Sequelize.DATEONLY
 	},
 }, {
 	sequelize,
 });
 
-module.exports = KyHoc;
+module.exports = Semester;
