@@ -274,7 +274,9 @@ module.exports = {
         }
         res.send('success');
     },
+
     importFromCSV: function(req, res, next) {
+        //(xac dinh model chon, xac dinh file chon)
         importCSV(req.body.model, req.file.path);
         res.send('success');
     }

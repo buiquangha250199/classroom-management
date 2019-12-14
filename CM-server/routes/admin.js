@@ -3,6 +3,9 @@ const router = express.Router();
 
 let adminController = require('../controllers/adminController');
 
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.send('test');
@@ -14,7 +17,7 @@ router.get('/', function(req, res, next) {
   router.post('/allCourseTime', adminController.allCourseTime);
   router.post('/newTimeSlot', adminController.newTimeSlot);
   router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
-  router.post('/importFromCSV', adminController.importFromCSV);
+  router.post('/importFromCSV',upload.single('file'), adminController.importFromCSV);
 
   router.get('/totalRoom', adminController.totalRoom);
   router.get('/totalCourse', adminController.totalCourse);
