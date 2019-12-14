@@ -8,25 +8,29 @@ router.get('/', function(req, res, next) {
     res.send('test');
 });
 
-  router.get('/totalClass', adminController.totalClass);
-  router.get('/activeRoom', adminController.activeRoom) ;
-  router.post('/deleteClass', adminController.deleteCourse);
-  router.post('/editClass', adminController.editCourse);
-  router.post('/roomUseCase', adminController.roomUseCase);
-  router.post('/allClassTime', adminController.allCourseTime);
-  router.post('/newTimeSlot', adminController.newTimeSlot);
+  router.get('/totalRoom', adminController.totalRoom);
+  router.get('/totalCourse', adminController.totalCourse);
+  router.get('/totalLecturer', adminController.totalLecturer);
+  router.get('/totalStudent', adminController.totalStudent);
 
-  router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
+  router.get('/room/list', adminController.allRoom);
+  router.get('/lecturer/list', adminController.allLecturer);
+  router.get('/course/list', adminController.allCourse);
 
+  router.post('/course/new', adminController.newCourse);
+  router.post('/room/new', adminController.newRoom);
+  router.post('/room/edit', adminController.newRoom);
+  router.post('/room/delete', adminController.newRoom);
 
-// router.post('/user/create',adminController.createNewUser);
-// router.get('/user/find',adminController.findUserByID);
-// router.put('/user/update',adminController.updateUser);
-// router.get('/user/delete', adminController.deleteUser);
+  // router.get('/deleteCourse', adminController.deleteCourse);
+  // router.get('/activeRoom', adminController.activeRoom) ;
+  // router.post('/deleteClass', adminController.deleteCourse);
+  // router.post('/editClass', adminController.editCourse);
+  // router.post('/roomUseCase', adminController.roomUseCase);
+  // router.post('/allClassTime', adminController.allCourseTime);
+  // router.post('/newTimeSlot', adminController.newTimeSlot);
 
-
-
-// // shift
+  // router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
 
 
 

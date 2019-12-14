@@ -1,19 +1,19 @@
-RoomName,Address,InUse,SucChua
-101G2,Tòa nhà G2,2 - chưa thể sử dụng,50
-102G2,Tòa nhà G2,1- có thể sử dụng,50
-201G2,Tòa nhà G2,1- có thể sử dụng,40
-202G2,Tòa nhà G2,1- có thể sử dụng,40
-203G2,Tòa nhà G2,1- có thể sử dụng,40
-204G2,Tòa nhà G2,1- có thể sử dụng,40
-201GD3,Tòa nhà GD3,2 - chưa thể sử dụng,40
-202GD3,Tòa nhà GD3,1- có thể sử dụng,40
-203GD3,Tòa nhà GD3,1- có thể sử dụng,40
-204GD3,Tòa nhà GD3,1- có thể sử dụng,40
-205GD3,Tòa nhà GD3,1- có thể sử dụng,40
-206GD3,Tòa nhà GD3,1- có thể sử dụng,40
-207GD3,Tòa nhà GD3,1- có thể sử dụng,40
-301GD2,Tòa nhà GD2,1- có thể sử dụng,60
-302GD2,Tòa nhà GD2,1- có thể sử dụng,60
-303GD2,Tòa nhà GD2,1- có thể sử dụng,60
-301G2,Tòa nhà G2,1- có thể sử dụng,60
-302G2,Tòa nhà G2,1- có thể sử dụng,60
+RoomName,Address,InUse,Capacity
+101G2,Tòa nhà G2,Chưa thể sử dụng,50
+102G2,Tòa nhà G2,Có thể sử dụng,50
+201G2,Tòa nhà G2,Có thể sử dụng,40
+202G2,Tòa nhà G2,Có thể sử dụng,40
+203G2,Tòa nhà G2,Có thể sử dụng,40
+204G2,Tòa nhà G2,Có thể sử dụng,40
+201GD3,Tòa nhà GD3,Chưa thể sử dụng,40
+202GD3,Tòa nhà GD3,Có thể sử dụng,40
+203GD3,Tòa nhà GD3,Có thể sử dụng,40
+204GD3,Tòa nhà GD3,Có thể sử dụng,40
+205GD3,Tòa nhà GD3,Có thể sử dụng,40
+206GD3,Tòa nhà GD3,Có thể sử dụng,40
+207GD3,Tòa nhà GD3,Có thể sử dụng,40
+301GD2,Tòa nhà GD2,Có thể sử dụng,60
+302GD2,Tòa nhà GD2,Có thể sử dụng,60
+303GD2,Tòa nhà GD2,Có thể sử dụng,60
+301G2,Tòa nhà G2,Có thể sử dụng,60
+302G2,Tòa nhà G2,Có thể sử dụng,60

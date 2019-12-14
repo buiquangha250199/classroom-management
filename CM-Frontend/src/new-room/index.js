@@ -11,7 +11,28 @@ angular.module(componentName, ['ngRoute', service])
     style: require("./style.css")
   });
 
-function NewRoomController($scope, $location, AuthenticationService, $rootScope) {
-    
+function NewRoomController($scope, $location, CallApiService, $rootScope) {
+	let self = this;
+
+    self.createRoom = function () {
+    	let data = {
+		"ten": self.name,
+		"diachi": self.address,
+		"trangthai": self.statusRoom,
+		"succhua": self.capacity
+		};
+    	console.log(data);
+
+    	CallApiService.Post('http://localhost:3000/admin/room/new', data, function (res) {
+    		console.log(res);
+    		if (res.status == 200) {
+    			self.message = "Thao tác thành công!";
+    			self.typeMessage = "success";
+    		} else {
+    			self.message = "Thao tác thất bại!";
+    			self.typeMessage = "danger";
+    		}
+    	})
+    }
 
 }
