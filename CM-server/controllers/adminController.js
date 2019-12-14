@@ -192,11 +192,22 @@ module.exports = {
     
     // danh sach lop mon hoc va time slot cua no(tao tkb)
     allCourseTime: function(req, res, next) {
+        Course.belongsTo(Semester, {foreignKey: 'IDSemester'});
+        Course.belongsTo(Lecturer, {foreignKey: 'IDLecturer'});
         Course.hasMany(TimeSlot, {foreignKey: 'IDCourse', sourceKey: 'IDCourse'});
     	Course.findAll({
-    		include:[{
+    		include:[
+            {
     			model: TimeSlot
-    		}]
+    		},
+            {
+                model: Semester,                 
+                attributes: ['SemesterName']
+            },
+            {
+                model: Lecturer,
+                attributes: ['Name']
+            }]
     	}).then(result =>res.json(result))
         .catch(function (err) {
         // handle error;
