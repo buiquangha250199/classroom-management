@@ -11,6 +11,10 @@
 
   </div>
   <div id="page-inner">
+    
+    <div class="alert alert-{{self.typeMessage}}" >
+        <strong>{{self.message}}</strong>
+    </div>
 
     <div class="row">
 
@@ -18,25 +22,25 @@
         <h2 class="text-center">Thêm phòng</h2>
         <div class="form-group">
           <label>Tên phòng</label>
-          <input class="form-control" placeholder="Enter text">
+          <input class="form-control" placeholder="Enter text" ng-model="self.name">
         </div>
         <div class="form-group">
           <label>Địa chỉ</label>
-          <input class="form-control" placeholder="Enter text">
+          <input class="form-control" placeholder="Enter text" ng-model="self.address">
         </div>
         <div class="form-group">
             <label>Tình trạng phòng</label>
-            <select class="form-control">
-                <option>Có thể sử dụng</option>
-                <option>Chưa thể sử dụng</option>
+            <select class="form-control" name="statusRoom" ng-model="self.statusRoom">
+                <option value="Có thể sử dụng">Có thể sử dụng</option>
+                <option value="Chưa thể sử dụng">Chưa thể sử dụng</option>
             </select>
         </div>
         <div class="form-group">
           <label>Sức chứa</label>
-          <input class="form-control" placeholder="">
+          <input class="form-control" placeholder="" ng-model="self.capacity">
         </div>
         
-        <button type="submit" class="btn btn-primary">Submit </button>
+        <button type="submit" class="btn btn-primary" ng-click="self.createRoom()">Submit </button>
         <button type="reset" class="btn btn-default">Reset </button>
       </form>
 

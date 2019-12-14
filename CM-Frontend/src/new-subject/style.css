@@ -3,7 +3,7 @@ new-subject #page-inner {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    position: relative;
     background-color: transparent;
     min-height: 500px;
 }
@@ -18,4 +18,10 @@ new-subject .text-center {
     text-align: center;
     margin-bottom: 25px;
     color: chocolate;
+}
+
+div.alert {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

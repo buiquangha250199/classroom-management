@@ -3,14 +3,17 @@
     <h1 class="page-header">
       Thêm môn học mới 
   </h1>
-  <ol class="breadcrumb">
-      <li><a href="#">Admin</a></li>
-      <li><a href="#">Subject</a></li>
-      <li class="active">New</li>
-  </ol> 
+<ol class="breadcrumb">
+  <li><a href="#">Admin</a></li>
+  <li><a href="#">Subject</a></li>
+  <li class="active">New</li>
+</ol> 
 
 </div>
 <div id="page-inner">
+    <div class="alert alert-success">
+        <strong>Well done!</strong> You successfully read this important alert message.
+    </div>
 
     <div class="row">
 
@@ -27,11 +30,7 @@
         <div class="form-group">
             <label>Chọn giảng viên</label>
             <select class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option ng-repeat="l in self.listLecturer">{{l.Name}}</option>
             </select>
         </div>
         <div class="form-group">

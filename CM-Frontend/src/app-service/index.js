@@ -2,6 +2,51 @@ const moduleName = "appService";
 module.exports = moduleName;
 
 angular.module(moduleName, [])
+.factory('CallApiService', ['$http', '$rootScope', function ($http, $rootScope) {
+
+    var service = {};
+
+    service.Post = function (_url, _data, callback) {
+
+        var req = {
+            method: 'POST',
+            url: _url,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: _data
+        }
+
+        $http(req).then(function (res) {
+            callback(res);
+
+        }, function (res) {
+            console.log(res);
+        }); 
+
+    }
+
+    service.Get = function (_url, callback) {
+        var req = {
+            method: 'GET',
+            url: _url,
+            headers: {
+                'Content-Type': 'application/json'
+            }   
+        }
+        $http(req).then(function (res) {
+            callback(res);
+
+        }, function (res) {
+            console.log(res);
+        }); 
+       
+    }
+
+    return service;
+    
+}])
+
 .factory('AuthenticationService', ['$http', '$rootScope', function ($http, $rootScope) {
 
     var service = {};
@@ -32,29 +77,21 @@ angular.module(moduleName, [])
 
     }
 
-    service.Register = function (username, password, email, callback) {
-
+    service.Get = function (_url, callback) {
         var req = {
-            method: 'POST',
-            url: 'https://fb-members.sellpro.vn/api/v1/accounts/register',
+            method: 'GET',
+            url: _url,
             headers: {
                 'Content-Type': 'application/json'
-            },
-            data: {
-                'user_name': username,
-                'password' : password,
-                'email'    : email
-            }
+            }   
         }
-
         $http(req).then(function (res) {
             callback(res);
 
         }, function (res) {
-            $scope.res = res.status;
-            console.log($scope.res);
+            console.log(res);
         }); 
-
+       
     }
 
     return service;
@@ -105,21 +142,4 @@ angular.module(moduleName, [])
 
         
 
-        if (
-                $location.path() === "/login" || 
-                $location.path() === "/lecturer" || 
-                $location.path() === "/student" 
-                )
-            {
-                $rootScope.turnOffMenu = true;
-            } else {
-                $rootScope.turnOffMenu = false;
-            }
-
-        $rootScope.$on('$locationChangeStart', function (event, next, current) {
-            
-
-           
-
-        });
     }]);
