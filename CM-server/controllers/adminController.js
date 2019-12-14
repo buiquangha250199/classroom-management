@@ -102,7 +102,7 @@ module.exports = {
     },
     
     //TaoTKB
-    allClassTime: function(req, res, next) {
+    allCourseTime: function(req, res, next) {
         Course.hasMany(TimeSlot, {foreignKey: 'IDCourse', sourceKey: 'IDCourse'});
     	Course.findAll({
     		include:[{

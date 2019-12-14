@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   router.post('/deleteClass', adminController.deleteCourse);
   router.post('/editClass', adminController.editCourse);
   router.post('/roomUseCase', adminController.roomUseCase);
-  router.post('/allClassTime', adminController.allClassTime);
+  router.post('/allClassTime', adminController.allCourseTime);
   router.post('/newTimeSlot', adminController.newTimeSlot);
 
   router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
