@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
   router.post('/newTimeSlot', adminController.newTimeSlot);
 
   router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
-
+  router.post('/importFromCSV', adminController.importFromCSV);
 
 // router.post('/user/create',adminController.createNewUser);
 // router.get('/user/find',adminController.findUserByID);

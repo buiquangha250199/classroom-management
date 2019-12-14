@@ -11,6 +11,8 @@ const Room = require('../models/Room.js');
 
 const database = require('../config/database.js');
 
+const importCSV = require('./importCSV.js');
+
 module.exports = {
     //so phong hoc
     totalRoom: function(req, res, next) {
@@ -246,7 +248,12 @@ module.exports = {
             });
         }
         res.send('success');
+    },
+    importFromCSV: function(req, res, next) {
+        importCSV(req.body.model);
+        res.send('success');
     }
- 
 
+
+    
 }
