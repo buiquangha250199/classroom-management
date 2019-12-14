@@ -13,8 +13,8 @@ router.get('/', function(req, res, next) {
 });
 
   router.get('/activeRoom', adminController.activeRoom) ;
-  router.post('/deleteClass', adminController.deleteClass);
-  router.post('/editClass', adminController.editClass);
+  router.post('/deleteClass', adminController.deleteCourse);
+  router.post('/editClass', adminController.editCourse);
   router.post('/roomUseCase', adminController.roomUseCase);
   router.post('/allClassTime', adminController.allClassTime);
   router.post('/newTimeSlot', adminController.newTimeSlot);
