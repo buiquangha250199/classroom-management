@@ -14,8 +14,12 @@ const database = require('../config/database.js');
 module.exports = {
     //so phong hoc
     totalRoom: function(req, res, next) {
-    	Room.count().then(result =>
-    	res.json(result));
+    	Room.count()
+        .then(result =>res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err);
+        });
     },
     //so lop mon hoc
     totalCourse: function(req, res, next) {
