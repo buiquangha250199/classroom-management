@@ -11,9 +11,29 @@ angular.module(componentName, ['ngRoute', service])
     style: require("./style.css")
   });
 
-function DashboardController($scope, $location, AuthenticationService, $rootScope) {
+function DashboardController($http, $scope, $location, AuthenticationService, $rootScope) {
     let self = this;
+
+    let req = {
+        method: 'GET',
+        url: 'http://localhost:3000/admin/totalClass',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    } 
+
+    let platforms = [];
+
+    $http(req).then(function (res) {
+
+        console.log(res.data);
+
+    }, function (res) {
+        console.log(res.data);
+    });
+
+    
+}
 
     
 
-}

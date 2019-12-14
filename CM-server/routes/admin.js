@@ -8,10 +8,7 @@ router.get('/', function(req, res, next) {
     res.send('test');
 });
 
-router.get('/', function(req, res, next) {
-    res.send('tong');
-});
-
+  router.get('/totalClass', adminController.totalClass);
   router.get('/activeRoom', adminController.activeRoom) ;
   router.post('/deleteClass', adminController.deleteCourse);
   router.post('/editClass', adminController.editCourse);
