@@ -18,42 +18,66 @@ module.exports = {
         .then(result =>res.json(result))
         .catch(function (err) {
         // handle error;
-        res.send(err);
+        res.send(err.message);
         });
     },
     //so lop mon hoc
     totalCourse: function(req, res, next) {
         Course.count().then(result =>
-        res.json(result));
+        res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
     //so giang vien
     totalLecturer: function(req, res, next) {
     	Lecturer.count().then(result =>
-    	res.json(result));
+    	res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
 
     //so sinh vien
     totalStudent: function(req, res, next) {
     	Student.count().then(result =>
-    	res.json(result));
+    	res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
 
     //danh sach phong
     allRoom: function(req, res, next) {
         Room.findAll().then(result =>
-        res.json(result));
+        res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
 
     //danh sach giang vien
     allLecturer: function(req, res, next) {
         Lecturer.findAll().then(result =>
-        res.json(result));
+        res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
 
     //danh sach lop mon hoc
     allCourse: function(req, res, next) {
         Course.findAll().then(result =>
-        res.json(result));
+        res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
 
     //them xoa sua lop mon hoc
@@ -65,14 +89,22 @@ module.exports = {
         Semester: req.body.kyhoc,
         TotalStudent: req.body.siso,
         Note: req.body.ghichu
-        }).then(result =>res.json(result));
+        }).then(result =>res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
     deleteCourse: function(req, res, next) {
         Course.destroy({
             where: {
                 IDCourse: req.body.id
             }
-        }).then(result =>res.json(result));
+        }).then(result =>res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
     editCourse: function(req, res, next) {
         Course.update({
@@ -84,7 +116,11 @@ module.exports = {
         Note: req.body.ghichu
         },{ 
             where: {IDCourse: req.body.id}
-        }).then(result =>res.json(result));
+        }).then(result =>res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
 
     // them xoa sua phong hoc
@@ -94,14 +130,22 @@ module.exports = {
     	Address: req.body.diachi, 
     	InUse: req.body.trangthai, 
     	Capacity: req.body.succhua
-    	}).then(result =>res.json(result));
+    	}).then(result =>res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
     deleteRoom: function(req, res, next) {
     	Room.destroy({
 			where: {
 				IDRoom: req.body.id
 			}
-		}).then(result =>res.json(result));
+		}).then(result =>res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
     editRoom: function(req, res, next) {
     	Room.update({
@@ -111,7 +155,11 @@ module.exports = {
             Capacity: req.body.succhua
     	},{	
 	    	where: {IDRoom: req.body.id}
-    	}).then(result =>res.json(result));
+    	}).then(result =>res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
 
     // timeslot cua phong
@@ -120,7 +168,11 @@ module.exports = {
     		where:{
     			IDRoom: req.body.phong
     		}
-    	}).then(result =>res.json(result));
+    	}).then(result =>res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
     
     // danh sach lop mon hoc va time slot cua no(tao tkb)
@@ -130,11 +182,16 @@ module.exports = {
     		include:[{
     			model: TimeSlot
     		}]
-    	}).then(result =>res.json(result));
+    	}).then(result =>res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
 
     //them, xoa, sua timeslot
     newTimeSlot: function(req, res, next) {
+        Course.hasMany(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
         var i;
         for (i= req.body.tietbd; i<= req.body.tietkt; i++){
             TimeSlot.create({
@@ -143,16 +200,25 @@ module.exports = {
             Period: i,
             IDRoom: req.body.phong,
             IDCourse: req.body.lop
-            }).then();
+            }).then()
+            .catch(function (err) {
+            // handle error;
+            res.send(err.message);
+            });
         }
-        
+        res.send('success');
     },
     deleteTimeSlot: function(req, res, next) {
+        Course.hasMany(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
         TimeSlot.destroy({
             where: {
             IDCourse: req.body.lop
             }
-        }).then(result =>res.json(result));
+        }).then(result =>res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
     editTimeSlot: function(req, res, next) {
         Course.hasMany(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
@@ -160,7 +226,11 @@ module.exports = {
             where: {
             IDCourse: req.body.lop
             }
-        }).then();
+        }).then()
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
         var i;
         for (i= req.body.tietbd; i<= req.body.tietkt; i++){
             TimeSlot.create({
@@ -169,8 +239,13 @@ module.exports = {
             Period: i,
             IDRoom: req.body.phong,
             IDCourse: req.body.lop
-            }).then();
+            }).then()
+            .catch(function (err) {
+            // handle error;
+            res.send(err.message);
+            });
         }
+        res.send('success');
     }
  
 
