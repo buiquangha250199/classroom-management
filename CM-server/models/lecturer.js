@@ -1,21 +1,20 @@
 const Sequelize = require('sequelize');
-
 const Model = Sequelize.Model;
 const sequelize = require('../config/sequelize.js');
 
-class SinhVien extends Model {}
-SinhVien.init({
-	IDSV:{
+class Lecturer extends Model {}
+Lecturer.init({
+	IDLecturer:{
 		type: Sequelize.INTEGER,
 		primaryKey: true,
 	},
-	Ten:{
+	Name:{
 		type: Sequelize.STRING
 	},
-	NgaySinh:{
+	DoB:{
 		type: Sequelize.DATEONLY
 	},
-	SDT:{
+	Phone:{
 		type: Sequelize.INTEGER.UNSIGNED.ZEROFILL
 	},
 	Email:{
@@ -24,11 +23,11 @@ SinhVien.init({
 			isEmail: true
 		}
 	},
-	LopKhoaHoc:{
+	Faculty:{
 		type: Sequelize.STRING
 	}
 },{
 	sequelize,
 });
 
-module.exports = SinhVien;
+module.exports = Lecturer;

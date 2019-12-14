@@ -1,31 +1,28 @@
 const Sequelize = require('sequelize');
-
 const Model = Sequelize.Model;
 const sequelize = require('../config/sequelize.js');
 
-const TimeSlot = require('../models/TimeSlot.js');
-
-class PhongHoc extends Model {}
-PhongHoc.init({
-	IDPhong:{
+class Room extends Model {}
+Room.init({
+	IDRoom:{
 		type: Sequelize.INTEGER,
 		primaryKey: true,
 		autoIncrement: true
 	},
-	TenPhong:{
+	RoomName:{
 		type: Sequelize.STRING
 	},
-	DiaChi:{
+	Address:{
 		type: Sequelize.STRING
 	},
-	TinhTrangPhong:{
-		type: Sequelize.INTEGER //0: Baotri 1: Sudung
+	InUse:{
+		type: Sequelize.STRING
 	},
-	SucChua:{
+	Capacity:{
 		type: Sequelize.INTEGER
 	}
 },{
 	sequelize,
 });
 
-module.exports = PhongHoc;
+module.exports = Room;
