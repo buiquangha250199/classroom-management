@@ -111,8 +111,8 @@ module.exports = {
         Course.create({
         CourseName: req.body.CourseName, 
         SubjectName: req.body.SubjectName, 
-        Lecturer: req.body.Lecturer,
-        Semester: req.body.Semester,
+        IDLecturer: req.body.Lecturer,
+        IDSemester: req.body.Semester,
         TotalStudent: req.body.TotalStudent,
         Note: req.body.Note
         }).then(result =>res.json(result))
@@ -124,7 +124,7 @@ module.exports = {
     deleteCourse: function(req, res, next) {
         Course.destroy({
             where: {
-                IDCourse: req.body.id
+                IDCourse: req.body.IDCourse
             }
         }).then(result =>res.json(result))
         .catch(function (err) {
@@ -136,14 +136,14 @@ module.exports = {
         Course.belongsTo(Semester, {foreignKey: 'IDSemester'});
         Course.belongsTo(Lecturer, {foreignKey: 'IDLecturer'});
         Course.update({
-        CourseName: req.body.malop, 
-        SubjectName: req.body.tenmon, 
-        Lecturer: req.body.giangvien,
-        Semester: req.body.kyhoc,
-        TotalStudent: req.body.siso,
-        Note: req.body.ghichu
+        CourseName: req.body.CourseName, 
+        SubjectName: req.body.SubjectName, 
+        IDLecturer: req.body.Lecturer,
+        IDSemester: req.body.Semester,
+        TotalStudent: req.body.TotalStudent,
+        Note: req.body.Note
         },{ 
-            where: {IDCourse: req.body.id}
+            where: {IDCourse: req.body.IDCourse}
         }).then(result =>res.json(result))
         .catch(function (err) {
         // handle error;

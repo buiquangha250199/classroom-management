@@ -11,46 +11,58 @@
 
 </div>
 <div id="page-inner">
+    <div class="alert alert-{{self.typeMessage}}" >
+        <strong>{{self.message}}</strong>
+    </div>
 
     <div class="row">
 
       <form role="form">
-        <h2 class="text-center">Xóa môn</h2>
+        <h2 class="text-center">Xóa môn học</h2>
         <fieldset disabled="">
             <div class="form-group">
-                <label for="disabledSelect"></label>
-                <div class="form-group">
-                  <label>Học kỳ hiện tại</label>
-                  <input class="form-control" placeholder="">
-              </div>
-              <div class="form-group">
-                  <label>Giảng viên</label>
-                  <input class="form-control" placeholder="">
-              </div>
-              <div class="form-group">
-                  <label>Mã lớp</label>
-                  <input class="form-control" placeholder="" style="text-transform: uppercase;">
-              </div>
-              <div class="form-group">
-                  <label>Tên lớp</label>
-                  <input class="form-control" placeholder="">
-              </div>
-              <div class="form-group">
-                  <label>Sĩ số</label>
-                  <input class="form-control" placeholder="">
-              </div>
-              <div class="form-group">
-                  <label>Ghi chú</label>
-                  <input class="form-control" placeholder="">
-              </div>
+                <label for="disabledSelect">Học kỳ hiện tại</label>
+                <select id="disabledSelect" class="form-control" >
+                    <option value="{{self.semesterName}}">{{self.semesterName}}</option>
+                </select>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <label>Chọn mã môn học</label>
+            <select class="form-control" ng-model="self.Course" ng-click="self.getCourseInfo()">
+                <option ng-repeat="c in self.listCourse">{{c.IDCourse}}</option>
+            </select>
+        </div>
+        <fieldset disabled="">
+            <div class="form-group">
+                <label>Sửa giảng viên</label>
+                <select class="form-control" ng-model="self.lecturerName" ng-click="self.getInfoLecturer()">
+                    <option ng-repeat="l in self.listLecturer">{{l.Name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+              <label>Sửa mã lớp</label>
+              <input class="form-control" required="" ng-model="self.CourseName" placeholder="" style="text-transform: uppercase;">
+          </div>
+          <div class="form-group">
+              <label>Sửa lớp</label>
+              <input class="form-control"  required="" ng-model="self.SubjectName" placeholder="">
+          </div>
+          <div class="form-group">
+              <label>Sĩ số</label>
+              <input class="form-control" type="number" required="" ng-model="self.TotalStudent" placeholder="">
+          </div>
+          <div class="form-group">
+              <label>Ghi chú</label>
+              <input class="form-control"  required="" ng-model="self.Note" placeholder="">
           </div>
       </fieldset>
 
-        <div class="panel-body">
-            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-              Xóa môn học
-          </button>
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="panel-body">
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Xóa môn học
+        </button>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -62,14 +74,13 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                        <button type="submit" class="btn btn-primary" ng-click="self.deleteCourse()">Xác nhận</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-<!-- End Modals-->
 
 </form>
 

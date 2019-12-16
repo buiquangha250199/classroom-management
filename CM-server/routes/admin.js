@@ -29,8 +29,12 @@ router.get('/', function(req, res, next) {
 
   router.post('/course/new', adminController.newCourse);
   router.post('/room/new', adminController.newRoom);
+
   router.put('/room/edit', adminController.editRoom);
+  router.put('/course/edit', adminController.editCourse);
+
   router.delete('/room/delete', adminController.deleteRoom);
+  router.delete('/course/delete', adminController.deleteCourse);
 
   // router.get('/deleteCourse', adminController.deleteCourse);
   // router.get('/activeRoom', adminController.activeRoom) ;

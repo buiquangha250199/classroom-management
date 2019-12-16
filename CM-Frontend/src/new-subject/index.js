@@ -26,6 +26,9 @@ function NewSubjectController($scope, $location, CallApiService, $rootScope) {
 		if (res.status == 200) {
 			self.listSemester = res.data;
 			self.semester = self.listSemester[1].IDSemester;
+
+			self.semesterName = self.listSemester[1].SemesterName;
+			console.log(self.semester);
 			
 		} else {
 			console.log(res.status);
@@ -54,16 +57,16 @@ function NewSubjectController($scope, $location, CallApiService, $rootScope) {
 		}
 		console.log(data);
 
-		// CallApiService.Post('http://localhost:3000/admin/course/new', data, function (res) {
-		// 	if (res.status == 200) {
-		// 		self.message = "Thao tác thành công!";
-		// 		self.typeMessage = "success";
-		// 		console.log(res);
-		// 		//setTimeout(function(){ location.reload(); }, 500);
-		// 	} else {
-		// 		console.log(res.status);
-		// 	}
-		// });
+		CallApiService.Post('http://localhost:3000/admin/course/new', data, function (res) {
+			if (res.status == 200) {
+				self.message = "Thao tác thành công!";
+				self.typeMessage = "success";
+				console.log(res);
+				setTimeout(function(){ location.reload(); }, 500);
+			} else {
+				console.log(res.status);
+			}
+		});
 	}
 	
 

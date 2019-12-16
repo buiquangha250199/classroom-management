@@ -11,6 +11,9 @@
 
 </div>
 <div id="page-inner">
+    <div class="alert alert-{{self.typeMessage}}" >
+        <strong>{{self.message}}</strong>
+    </div>
 
     <div class="row">
 
@@ -19,39 +22,41 @@
         <fieldset disabled="">
             <div class="form-group">
                 <label for="disabledSelect">Học kỳ hiện tại</label>
-                <select id="disabledSelect" class="form-control">
-                    <option>Học kỳ I 2017-2018</option>
+                <select id="disabledSelect" class="form-control" >
+                    <option value="{{self.semesterName}}">{{self.semesterName}}</option>
                 </select>
             </div>
         </fieldset>
         <div class="form-group">
-            <label>Chọn giảng viên</label>
-            <select class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+            <label>Chọn mã môn học</label>
+            <select class="form-control" ng-model="self.Course" ng-click="self.getCourseInfo()">
+                <option ng-repeat="c in self.listCourse">{{c.IDCourse}}</option>
             </select>
         </div>
         <div class="form-group">
-          <label>Mã lớp</label>
-          <input class="form-control" placeholder="Nhập mã lớp học phần" style="text-transform: uppercase;">
+            <label>Sửa giảng viên</label>
+            <select class="form-control" ng-model="self.lecturerName" ng-click="self.getInfoLecturer()">
+                <option ng-repeat="l in self.listLecturer">{{l.Name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label>Sửa mã lớp</label>
+          <input class="form-control" required="" ng-model="self.CourseName" placeholder="" style="text-transform: uppercase;">
       </div>
       <div class="form-group">
-          <label>Tên lớp</label>
-          <input class="form-control" placeholder="Tên lớp học phần">
+          <label>Sửa lớp</label>
+          <input class="form-control"  required="" ng-model="self.SubjectName" placeholder="">
       </div>
       <div class="form-group">
           <label>Sĩ số</label>
-          <input class="form-control" placeholder="">
+          <input class="form-control" type="number" required="" ng-model="self.TotalStudent" placeholder="">
       </div>
       <div class="form-group">
           <label>Ghi chú</label>
-          <input class="form-control" placeholder="">
+          <input class="form-control"  required="" ng-model="self.Note" placeholder="">
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit </button>
+      <button type="submit" class="btn btn-primary" ng-click="self.editCourse()">Submit </button>
       <button type="reset" class="btn btn-default">Reset </button>
   </form>
 
