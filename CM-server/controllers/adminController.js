@@ -106,6 +106,8 @@ module.exports = {
 
     //them xoa sua lop mon hoc
     newCourse: function(req, res, next) {
+        Course.belongsTo(Semester, {foreignKey: 'IDSemester'});
+        Course.belongsTo(Lecturer, {foreignKey: 'IDLecturer'});
         Course.create({
         CourseName: req.body.CourseName, 
         SubjectName: req.body.SubjectName, 
@@ -131,6 +133,8 @@ module.exports = {
         });
     },
     editCourse: function(req, res, next) {
+        Course.belongsTo(Semester, {foreignKey: 'IDSemester'});
+        Course.belongsTo(Lecturer, {foreignKey: 'IDLecturer'});
         Course.update({
         CourseName: req.body.malop, 
         SubjectName: req.body.tenmon, 
