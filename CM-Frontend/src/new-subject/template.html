@@ -11,8 +11,8 @@
 
 </div>
 <div id="page-inner">
-    <div class="alert alert-success">
-        <strong>Well done!</strong> You successfully read this important alert message.
+    <div class="alert alert-{{self.typeMessage}}" >
+        <strong>{{self.message}}</strong>
     </div>
 
     <div class="row">
@@ -22,35 +22,35 @@
         <fieldset disabled="">
             <div class="form-group">
                 <label for="disabledSelect">Học kỳ hiện tại</label>
-                <select id="disabledSelect" class="form-control">
-                    <option>Học kỳ I 2017-2018</option>
+                <select id="disabledSelect" class="form-control" >
+                    <option value="{{self.semester.SemesterName}}">{{self.semester.SemesterName}}</option>
                 </select>
             </div>
         </fieldset>
         <div class="form-group">
             <label>Chọn giảng viên</label>
-            <select class="form-control">
+            <select class="form-control" ng-model="self.lecturer" ng-click="self.getInfoLecturer()">
                 <option ng-repeat="l in self.listLecturer">{{l.Name}}</option>
             </select>
         </div>
         <div class="form-group">
           <label>Mã lớp</label>
-          <input class="form-control" placeholder="Nhập mã lớp học phần" style="text-transform: uppercase;">
+          <input class="form-control" required="" ng-model="self.courseName" placeholder="Nhập mã lớp học phần" style="text-transform: uppercase;">
       </div>
       <div class="form-group">
           <label>Tên lớp</label>
-          <input class="form-control" placeholder="Tên lớp học phần">
+          <input class="form-control"  required="" ng-model="self.subjectName" placeholder="Tên lớp học phần">
       </div>
       <div class="form-group">
           <label>Sĩ số</label>
-          <input class="form-control" placeholder="">
+          <input class="form-control"  required="" ng-model="self.totalStudent" placeholder="">
       </div>
       <div class="form-group">
           <label>Ghi chú</label>
-          <input class="form-control" placeholder="">
+          <input class="form-control"  required="" ng-model="self.note" placeholder="">
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit </button>
+      <button type="submit" class="btn btn-primary" ng-click="self.createNewCourse()">Submit </button>
       <button type="reset" class="btn btn-default">Reset </button>
   </form>
 

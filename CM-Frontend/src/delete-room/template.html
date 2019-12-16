@@ -16,49 +16,55 @@
 
       <form role="form">
         <h2 class="text-center">Xóa phòng học</h2>
-        <fieldset disabled="">
-            <div class="form-group">
-              <label>Tên phòng</label>
-              <input class="form-control" placeholder="Enter text">
-          </div>
-          <div class="form-group">
-              <label>Địa chỉ</label>
-              <input class="form-control" placeholder="Enter text">
-          </div>
-          <div class="form-group">
-            <label>Tình trạng phòng</label>
-            <select class="form-control">
-                <option>Có thể sử dụng</option>
-                <option>Chưa thể sử dụng</option>
-            </select>
-        </div>
         <div class="form-group">
-          <label>Sức chứa</label>
-          <input class="form-control" placeholder="">
+            <label>Chọn mã phòng</label>
+            <select class="form-control" ng-model="self.IDRoom" 
+            ng-click="self.getInfo(self.IDRoom)">
+            <option ng-repeat="r in self.listRoom" >{{r.IDRoom}}</option>
+        </select>
+    </div>
+    <fieldset disabled="">
+        <div class="form-group">
+          <label>Tên phòng</label>
+          <input class="form-control" value="{{self.name}}" >
       </div>
-  </fieldset>
+      <div class="form-group">
+          <label>Địa chỉ</label>
+          <input class="form-control" value="{{self.address}}">
+      </div>
+      <div class="form-group">
+        <label>Tình trạng phòng</label>
+        <select class="form-control">
+            <option value="{{self.statusRoom}}">{{self.statusRoom}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label>Sức chứa</label>
+      <input class="form-control" value="{{self.capacity}}">
+  </div>
+</fieldset>
 
-  <div class="panel-body">
+<div class="panel-body">
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Xóa phòng học
-  </button>
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Thông báo</h4>
-            </div>
-            <div class="modal-body">
-                Bạn có chắc muốn xóa phòng học này?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-                <button type="submit" class="btn btn-primary">Xác nhận</button>
+        Xóa phòng học
+    </button>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Thông báo</h4>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc muốn xóa phòng học này?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary" ng-click="self.deleteRoom()">Xác nhận</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <!-- End Modals-->

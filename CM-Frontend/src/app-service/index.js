@@ -31,8 +31,44 @@ angular.module(moduleName, [])
             method: 'GET',
             url: _url,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json; charset=utf-8'
             }   
+        }
+        $http(req).then(function (res) {
+            callback(res);
+
+        }, function (res) {
+            console.log(res);
+        }); 
+       
+    }
+
+    service.Put = function (_url, _data, callback) {
+        var req = {
+            method: 'PUT',
+            url: _url,
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+            },
+            data: _data
+        }
+        $http(req).then(function (res) {
+            callback(res);
+
+        }, function (res) {
+            console.log(res);
+        }); 
+       
+    }
+
+    service.Delete = function (_url, _data, callback) {
+        var req = {
+            method: 'DELETE',
+            url: _url,
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+            },
+            data: _data
         }
         $http(req).then(function (res) {
             callback(res);

@@ -12,31 +12,44 @@
   </div>
   <div id="page-inner">
 
+    <div class="alert alert-{{self.typeMessage}}" >
+        <strong>{{self.message}}</strong>
+    </div>
+
     <div class="row">
 
       <form role="form">
         <h2 class="text-center">Sửa phòng</h2>
+
+        <div class="form-group">
+            <label>Chọn mã phòng</label>
+            <select class="form-control" ng-model="self.IDRoom" 
+                    ng-click="self.getInfo(self.IDRoom)">
+                <option ng-repeat="r in self.listRoom" >{{r.IDRoom}}</option>
+            </select>
+        </div>
         <div class="form-group">
           <label>Tên phòng</label>
-          <input class="form-control" placeholder="Enter text">
+          <input class="form-control" ng-model="self.name">
         </div>
         <div class="form-group">
           <label>Địa chỉ</label>
-          <input class="form-control" placeholder="Enter text">
+          <input class="form-control" ng-model="self.address">
         </div>
         <div class="form-group">
             <label>Tình trạng phòng</label>
-            <select class="form-control">
-                <option>Có thể sử dụng</option>
-                <option>Chưa thể sử dụng</option>
+            <select class="form-control" ng-model="self.statusRoom">
+                <option value="{{self.statusRoom}}" selected>{{self.statusRoom}}</option>
+                <option value="Có thể sử dụng">Có thể sử dụng</option>
+                <option value="Chưa thể sử dụng">Chưa thể sử dụng</option>
             </select>
         </div>
         <div class="form-group">
           <label>Sức chứa</label>
-          <input class="form-control" placeholder="">
+          <input class="form-control" ng-model="self.capacity">
         </div>
         
-        <button type="submit" class="btn btn-primary">Submit </button>
+        <button type="submit" class="btn btn-primary" ng-click="self.updateRoom()">Submit </button>
         <button type="reset" class="btn btn-default">Reset </button>
       </form>
 

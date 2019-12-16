@@ -11,8 +11,6 @@ router.get('/', function(req, res, next) {
     res.send('test');
 });
 
- 
-
   router.post('/roomUseCase', adminController.roomUseCase);
   router.post('/allCourseTime', adminController.allCourseTime);
   router.post('/newTimeSlot', adminController.newTimeSlot);
@@ -27,11 +25,12 @@ router.get('/', function(req, res, next) {
   router.get('/room/list', adminController.allRoom);
   router.get('/lecturer/list', adminController.allLecturer);
   router.get('/course/list', adminController.allCourse);
+  router.get('/semester/list', adminController.allSemester);
 
   router.post('/course/new', adminController.newCourse);
   router.post('/room/new', adminController.newRoom);
-  router.post('/room/edit', adminController.newRoom);
-  router.post('/room/delete', adminController.newRoom);
+  router.put('/room/edit', adminController.editRoom);
+  router.delete('/room/delete', adminController.deleteRoom);
 
   // router.get('/deleteCourse', adminController.deleteCourse);
   // router.get('/activeRoom', adminController.activeRoom) ;

@@ -26,22 +26,22 @@
         </div>
         <div class="form-group">
           <label>Địa chỉ</label>
-          <input class="form-control" placeholder="Enter text" ng-model="self.address">
+          <input class="form-control" placeholder="Enter text" ng-model="self.address" required="">
         </div>
         <div class="form-group">
             <label>Tình trạng phòng</label>
-            <select class="form-control" name="statusRoom" ng-model="self.statusRoom">
+            <select class="form-control" name="statusRoom" ng-model="self.statusRoom" required="">
                 <option value="Có thể sử dụng">Có thể sử dụng</option>
                 <option value="Chưa thể sử dụng">Chưa thể sử dụng</option>
             </select>
         </div>
         <div class="form-group">
           <label>Sức chứa</label>
-          <input class="form-control" placeholder="" ng-model="self.capacity">
+          <input class="form-control" placeholder="" required="" ng-model="self.capacity">
         </div>
         
         <button type="submit" class="btn btn-primary" ng-click="self.createRoom()">Submit </button>
-        <button type="reset" class="btn btn-default">Reset </button>
+        <!-- <button type="reset" class="btn btn-default">Reset </button> -->
       </form>
 
     </div>

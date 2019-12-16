@@ -62,6 +62,15 @@ module.exports = {
         });
     },
 
+    allSemester: function(req, res, next) {
+        Semester.findAll().then(result =>
+        res.json(result))
+        .catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
+    },
+
     //danh sach giang vien
     allLecturer: function(req, res, next) {
         Lecturer.findAll().then(result =>
@@ -98,12 +107,12 @@ module.exports = {
     //them xoa sua lop mon hoc
     newCourse: function(req, res, next) {
         Course.create({
-        CourseName: req.body.malop, 
-        SubjectName: req.body.tenmon, 
-        Lecturer: req.body.giangvien,
-        Semester: req.body.kyhoc,
-        TotalStudent: req.body.siso,
-        Note: req.body.ghichu
+        CourseName: req.body.CourseName, 
+        SubjectName: req.body.SubjectName, 
+        Lecturer: req.body.Lecturer,
+        Semester: req.body.Semester,
+        TotalStudent: req.body.TotalStudent,
+        Note: req.body.Note
         }).then(result =>res.json(result))
         .catch(function (err) {
         // handle error;
@@ -160,7 +169,7 @@ module.exports = {
         .catch(function (err) {
         // handle error;
         res.send(err.message);
-        });
+        }); 
     },
     editRoom: function(req, res, next) {
     	Room.update({

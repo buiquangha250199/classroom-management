@@ -20,8 +20,6 @@ new-subject .text-center {
     color: chocolate;
 }
 
-div.alert {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+new-subject div.alert{
+    top:  0;
 }

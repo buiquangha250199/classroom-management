@@ -28,11 +28,13 @@ function NewRoomController($scope, $location, CallApiService, $rootScope) {
     		if (res.status == 200) {
     			self.message = "Thao tác thành công!";
     			self.typeMessage = "success";
+    			setTimeout(function(){ location.reload(); }, 500);
     		} else {
     			self.message = "Thao tác thất bại!";
     			self.typeMessage = "danger";
     		}
     	})
+    	//event.preventDefault();
     }
 
 }
