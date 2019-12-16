@@ -111,8 +111,8 @@ module.exports = {
         Course.create({
         CourseName: req.body.CourseName, 
         SubjectName: req.body.SubjectName, 
-        Lecturer: req.body.Lecturer,
-        Semester: req.body.Semester,
+        IDLecturer: req.body.Lecturer,
+        IDSemester: req.body.Semester,
         TotalStudent: req.body.TotalStudent,
         Note: req.body.Note
         }).then(result =>res.json(result))
@@ -138,8 +138,8 @@ module.exports = {
         Course.update({
         CourseName: req.body.malop, 
         SubjectName: req.body.tenmon, 
-        Lecturer: req.body.giangvien,
-        Semester: req.body.kyhoc,
+        IDLecturer: req.body.giangvien,
+        IDSemester: req.body.kyhoc,
         TotalStudent: req.body.siso,
         Note: req.body.ghichu
         },{ 
