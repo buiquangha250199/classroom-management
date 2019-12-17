@@ -9,32 +9,36 @@
 </head>
 <body>
 
-	<div class="form" id="login">  
+  <div class="container">
 
-  <form action="index.html" method="POST" class="loginClass">
+   <div class="form" id="login">  
 
-  <div class="form-title">
-    {{self.title}}
+    <form action="/#!/admin/dashboard" method="GET" class="loginClass">
+
+      <div class="form-title">
+        Đăng nhập 
+      </div>
+
+      <div class="input-form">
+        <div class="icon">
+          <i class="fas fa-user" aria-hidden="true"></i>
+        </div>
+        <input type="text" placeholder="Tên đăng nhập" required="" ng-model="self.username">
+      </div>
+
+      <div class="input-form">
+        <div class="icon">
+          <i class="fa fa-lock" aria-hidden="true"></i>
+        </div>
+        <input type="password" placeholder="Mật khẩu" required="" ng-model="self.password" required="">
+      </div>
+      <button id="submit" type="submit" ng-click="self.login()">Đăng nhập</button>
+    </form>
+
   </div>
-
-  <div class="input-form">
-    <div class="icon">
-      <i class="fas fa-user" aria-hidden="true"></i>
-    </div>
-    <input type="text" placeholder="Username" required="" ng-model="self.username">
-  </div>
-
-  <div class="input-form">
-    <div class="icon">
-      <i class="fa fa-lock" aria-hidden="true"></i>
-    </div>
-    <input type="password" placeholder="Password" required="" ng-model="self.password" required="">
-  </div>
-  <button id="submit" type="submit" ng-click="self.login()">Login</button>
-</form>
-
-
 </div>
-	
+
+
+
 </body>
 </html>

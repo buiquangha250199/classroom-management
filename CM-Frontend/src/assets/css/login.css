@@ -1,3 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+input, button {
+    outline: none;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+div.container { 
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+background: rgb(2,0,36);
+background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(32,85,149,1) 9%, rgba(0,212,255,1) 89%);
+}
+
+
+
 div.form {
     position: relative;
     height: 500px;
@@ -178,3 +213,12 @@ div.message {
 .status {
     text-transform: uppercase;
 }
+
+/*body {
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(32,32,149,1) 12%, rgba(0,212,255,1) 89%);
+}
+*/

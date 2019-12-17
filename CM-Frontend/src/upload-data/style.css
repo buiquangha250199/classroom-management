@@ -19,3 +19,9 @@ upload-data .text-center {
     margin-bottom: 25px;
     color: chocolate;
 }
+
+upload-data form.form-inline.text-center{
+    border: 1px solid chocolate;
+    color: darkcyan;
+    padding: 10px;
+}

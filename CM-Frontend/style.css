@@ -644,3 +644,9 @@ div.alert {
     left: 0;
     text-align: center;
 }
+
+form.ng-pristine.ng-invalid.ng-invalid-required {
+    border: 1px solid chocolate;
+    padding: 30px;
+    color: darkcyan;
+}

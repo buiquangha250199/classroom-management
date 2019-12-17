@@ -3,7 +3,7 @@ module.exports = componentName;
 
 const service = require('../app-service/index.js');
 
-angular.module(componentName, ['ngRoute', service])
+angular.module(componentName, ['ngRoute', 'angularUtils.directives.dirPagination', service])
 .component("dashboardPage", {
 	controller: DashboardController,
 	controllerAs: "self",
@@ -13,6 +13,11 @@ angular.module(componentName, ['ngRoute', service])
 
 function DashboardController($http, $scope, $location, CallApiService, $rootScope) {
 	let self = this;
+	
+	self.sort = function(keyname){
+		self.sortKey = keyname;   //set the sortKey to the param passed
+		self.reverse = !self.reverse; //if true make it false and vice versa
+	}
 
 	CallApiService.Get('http://localhost:3000/admin/totalRoom', function (res) {
 		if (res.status == 200) {
