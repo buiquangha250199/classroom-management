@@ -254,13 +254,8 @@ module.exports = {
             Period: i,
             IDRoom: req.body.phong,
             IDCourse: req.body.lop
-            }).then()
-            .catch(function (err) {
-            // handle error;
-            res.send(err.message);
-            });
+            }).then();
         }
-        res.send('success');
     },
     deleteTimeSlot: function(req, res, next) {
         Course.hasMany(TimeSlot, {foreignKey: 'IDCourse'});
@@ -280,11 +275,7 @@ module.exports = {
             where: {
             IDCourse: req.body.lop
             }
-        }).then()
-        .catch(function (err) {
-        // handle error;
-        res.send(err.message);
-        });
+        }).then();
         var i;
         for (i= req.body.tietbd; i<= req.body.tietkt; i++){
             TimeSlot.create({
@@ -293,11 +284,7 @@ module.exports = {
             Period: i,
             IDRoom: req.body.phong,
             IDCourse: req.body.lop
-            }).then()
-            .catch(function (err) {
-            // handle error;
-            res.send(err.message);
-            });
+            }).then();
         }
         res.send('success');
     },
