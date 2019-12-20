@@ -650,3 +650,8 @@ form.ng-pristine.ng-invalid.ng-invalid-required {
     padding: 30px;
     color: darkcyan;
 }
+
+
+.pagination {
+    float:right;
+}

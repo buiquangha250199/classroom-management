@@ -9,16 +9,9 @@
 	<script src="./bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="./bower_components/font-awesome/css/all.min.css">
 	<link href="src/assets/css/bootstrap.css" rel="stylesheet" />
-	<!-- FontAwesome Styles-->
-	<!-- <link href="src/assets/css/font-awesome.css" rel="stylesheet" /> -->
-	<!-- Custom Styles-->
 	<link href="style.css" rel="stylesheet" />
-	<!-- TABLE STYLES-->
-	<script src="src/assets/js/dirPagination.js" type="text/javascript" charset="utf-8"></script>
-	<link href="src/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-	<script type="text/javascript" src="./dist/index.bundle.js"></script>
-	<!-- Google Fonts-->
-	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
+
+	
 </head>
 <body translate="no">
 	
@@ -90,7 +83,18 @@
 						</ul>
 					</li>
 					<li>
-						<a href="#!/admin/timetable"><i class="fas fa-calendar-alt"></i> Quản lý thời khóa biểu</a>
+						<a href="#"><i class="fas fa-school"></i>Quản lý thời khóa biểu<span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li>
+								<a href="#!/admin/timetable/new">Tạo thời khóa biểu</a>
+							</li>
+							<li>
+								<a href="#!/admin/timetable/edit">Sửa thời khóa biểu</a>
+							</li>
+							<li>
+								<a href="#!/admin/timetable/delete">Xóa thời khóa biểu</a>
+							</li>
+						</ul>
 					</li>
 
 					<li>
@@ -110,9 +114,6 @@
 		
 		<!-- /. PAGE WRAPPER  -->
 	</div>
-
-	<!-- JS Scripts-->
-	<!-- jQuery Js -->
 	
 	<!-- Bootstrap Js -->
 	<script src="src/assets/js/bootstrap.min.js"></script>
@@ -122,22 +123,11 @@
 	<!-- Custom Js -->
 	<script src="src/assets/js/custom-scripts.js"></script>
 
-	<!-- DATA TABLE SCRIPTS -->
-	<script src="src/assets/js/dataTables/jquery.dataTables.js"></script>
-	<script src="src/assets/js/dataTables/dataTables.bootstrap.js"></script>
-	<script>
-		$(document).ready(function () {
-			$('#room-table').dataTable();
-		});
+	<!-- TABLE STYLES-->
+	<script src="src/assets/js/dirPagination.js" type="text/javascript" charset="utf-8"></script>
+	<!-- <link href="src/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" /> -->
 
-		$(document).ready(function () {
-			$('#lecturer-table').dataTable();
-		});
-
-		$(document).ready(function () {
-			$('#subject-table').dataTable();
-		});
-	</script>
+	<script type="text/javascript" src="./dist/index.bundle.js"></script>
 
 	
 </body>

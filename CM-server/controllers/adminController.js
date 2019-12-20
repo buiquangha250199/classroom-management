@@ -231,7 +231,7 @@ module.exports = {
 
     //them, xoa, sua timeslot
     newTimeSlot: function(req, res, next) {
-        Course.hasMany(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
+        Course.hasMany(TimeSlot, {foreignKey: 'IDCourse'});
         var i;
         for (i= req.body.tietbd; i<= req.body.tietkt; i++){
             TimeSlot.create({
@@ -249,7 +249,7 @@ module.exports = {
         res.send('success');
     },
     deleteTimeSlot: function(req, res, next) {
-        Course.hasMany(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
+        Course.hasMany(TimeSlot, {foreignKey: 'IDCourse'});
         TimeSlot.destroy({
             where: {
             IDCourse: req.body.lop
@@ -261,7 +261,7 @@ module.exports = {
         });
     },
     editTimeSlot: function(req, res, next) {
-        Course.hasMany(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
+        Course.hasMany(TimeSlot, {foreignKey: 'IDCourse'});
         TimeSlot.destroy({
             where: {
             IDCourse: req.body.lop

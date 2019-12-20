@@ -163,8 +163,14 @@ angular.module(moduleName, [])
     .when("/admin/subject/:id", {
         template : '<subject-details></subject-details>'
     })
-    .when("/admin/timetable", {
-        template : '<timetable-man></timetable-man>'
+    .when("/admin/timetable/new", {
+        template : '<new-timetable></new-timetable>'
+    })
+    .when("/admin/timetable/edit", {
+        template : '<edit-timetable></edit-timetable>'
+    })
+    .when("/admin/timetable/delete", {
+        template : '<delete-timetable></delete-timetable>'
     })
     .when("/admin/data/upload", {
         template : '<upload-data></upload-data>'

@@ -1,4 +1,4 @@
-timetable-man #page-inner {
+new-timetable #page-inner {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -8,14 +8,15 @@ timetable-man #page-inner {
     min-height: 500px;
 }
 
-timetable-man .row {
+new-timetable .row {
     margin-right: -15px;
     margin-left: -15px;
-    width: 600px;
+    
 }
 
-timetable-man .text-center {
+new-timetable .text-center {
     text-align: center;
     margin-bottom: 25px;
     color: chocolate;
 }
+

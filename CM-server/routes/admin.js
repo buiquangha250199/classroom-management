@@ -26,26 +26,19 @@ router.get('/', function(req, res, next) {
   router.get('/lecturer/list', adminController.allLecturer);
   router.get('/course/list', adminController.allCourse);
   router.get('/semester/list', adminController.allSemester);
+  router.get('/timeslot/list', adminController.allCourseTime);
 
   router.post('/course/new', adminController.newCourse);
   router.post('/room/new', adminController.newRoom);
+  router.post('/timeslot/new', adminController.newTimeSlot);
 
   router.put('/room/edit', adminController.editRoom);
   router.put('/course/edit', adminController.editCourse);
+  router.put('/timeslot/edit', adminController.editTimeSlot);
 
   router.delete('/room/delete', adminController.deleteRoom);
   router.delete('/course/delete', adminController.deleteCourse);
-
-  // router.get('/deleteCourse', adminController.deleteCourse);
-  // router.get('/activeRoom', adminController.activeRoom) ;
-  // router.post('/deleteClass', adminController.deleteCourse);
-  // router.post('/editClass', adminController.editCourse);
-  // router.post('/roomUseCase', adminController.roomUseCase);
-  // router.post('/allClassTime', adminController.allCourseTime);
-  // router.post('/newTimeSlot', adminController.newTimeSlot);
-
-  // router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
-
+  router.delete('/timeslot/delete', adminController.deleteTimeSlot);
 
 
 

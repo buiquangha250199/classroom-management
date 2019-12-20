@@ -1,0 +1,123 @@
+<div id="page-wrapper">
+  <div class="header"> 
+    <h1 class="page-header">
+      Quản lý thời khóa biểu
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="">Admin</a></li>
+      <li><a href="">Timetable</a></li>
+      <li class="active"></li>
+    </ol> 
+
+  </div>
+  <div id="page-inner">
+    <div class="alert alert-{{self.typeMessage}}" >
+        <strong>{{self.message}}</strong>
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-12">
+        <!-- Bảng giảng viên -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+           Xếp thời khóa biểu
+         </div>
+         <div class="panel-body">
+          <div class="bs-component">
+            <form class="form-inline">
+              <div class="form-group">
+                <label >Search</label>
+                <input type="text" ng-model="courseSearchKey" class="form-control" placeholder="Search">
+              </div>
+            </form>
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th ng-click="self.sort('self.IDCourse')">ID Môn học
+                    <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.IDCourse'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                  </th>
+                  <th ng-click="self.sort('self.SubjectName')">Tên Môn học
+                    <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.SubjectName'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                  </th>
+                  <th ng-click="self.sort('self.LecturerName')">Giảng viên
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='self.LecturerName'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                  </th>
+                  <th ng-click="self.sort('self.IDSemester')">Kỳ học
+                    <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.IDSemester'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                  </th>
+                  <th>Chọn phòng</th>
+                  <th>Chọn thứ</th>
+                  <th>Tiết đầu</th>
+                  <th>Tiết cuối</th>
+                  <th>Thao tác</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <form action="" role="form">
+                <tr dir-paginate="t in self.listTimeslot|orderBy:self.sortKey:self.reverse|filter:courseSearchKey|itemsPerPage:10" ng-click="self.getInfo(t.IDCourse, t.IDSemester)">
+                  <td>{{t.IDCourse}}</td>
+                  <td>{{t.SubjectName}}</td>
+                  <td>{{t.Lecturer.Name}}</td>
+                  <td>{{t.Semester.SemesterName}}</td>
+                  <td>
+                    <select class="form-control" ng-model="self.IDRoom" 
+                    ng-click="">
+                    <option ng-repeat="r in self.listRoom" value="{{r.IDRoom}}">{{r.RoomName}}</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="form-control" ng-model="self.thu" ng-click="">
+                    <option value="2">Thứ Hai</option>
+                    <option value="3">Thứ Ba</option>
+                    <option value="4">Thứ Tứ</option>
+                    <option value="5">Thứ Năm</option>
+                    <option value="6">Thứ Sáu</option>
+                    <option value="7">Thứ Bảy</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="form-control" ng-model="self.tietbd" ng-click="">
+                    <option ng-repeat="s in self.slot" value="{{s}}">{{s}}</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="form-control" ng-model="self.tietkt" ng-click="">
+                    <option ng-repeat="e in self.slot" value="{{e}}">{{e}}</option>
+                  </select>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Action <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><button type="submit" class="btn btn-primary in-dropdown" ng-click="self.addTimeslot()"><i class="fas fa-plus"></i> Thêm</button></li>
+                      <li><button type="submit" class="btn btn-warning in-dropdown" ng-click="self.editTimeslot()"><i class="fas fa-edit"></i> Sửa</button></li>
+                      <li><button type="submit" class="btn btn-danger in-dropdown" ng-click="self.deleteTimeslot()"><i class="fas fa-trash-alt"></i> Xóa</button></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              </form>
+            </tbody>
+          </table> 
+          <dir-pagination-controls
+          max-size="10"
+          direction-links="true"
+          boundary-links="true" >
+        </dir-pagination-controls>
+      </div>
+
+    </div>
+  </div>    
+  <!--End Subject Tables -->
+</div>
+
+</div>
+
+
+</div>
+
+<!-- /. PAGE INNER  -->
+<footer><p>Đại học Công nghệ - ĐHQGHN</p></footer>
+</div>
