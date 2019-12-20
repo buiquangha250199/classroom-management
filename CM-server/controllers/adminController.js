@@ -14,6 +14,20 @@ const database = require('../config/database.js');
 const importCSV = require('./importCSV.js');
 
 module.exports = {
+    //ky hoc hien tai
+    currentSemester: function(req, res, next) {
+        Semester.findAll().then(result => {
+            var currentTime = new Date();
+            var currentSemester;
+            result.forEach((resultItem) => {
+                if ((currentTime > Date.parse(resultItem.StartDate)) && (currentTime < Date.parse(resultItem.EndDate))){
+                    currentSemester = resultItem;
+                }
+            })
+            res.send(currentSemester);
+        })
+    },
+
     //so phong hoc
     totalRoom: function(req, res, next) {
     	Room.count()
@@ -231,7 +245,7 @@ module.exports = {
 
     //them, xoa, sua timeslot
     newTimeSlot: function(req, res, next) {
-        Course.hasMany(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
+        Course.hasMany(TimeSlot, {foreignKey: 'IDCourse'});
         var i;
         for (i= req.body.tietbd; i<= req.body.tietkt; i++){
             TimeSlot.create({
@@ -249,7 +263,7 @@ module.exports = {
         res.send('success');
     },
     deleteTimeSlot: function(req, res, next) {
-        Course.hasMany(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
+        Course.hasMany(TimeSlot, {foreignKey: 'IDCourse'});
         TimeSlot.destroy({
             where: {
             IDCourse: req.body.lop
@@ -261,7 +275,7 @@ module.exports = {
         });
     },
     editTimeSlot: function(req, res, next) {
-        Course.hasMany(TimeSlot, {foreignKey: 'TinhTrangTimeSlot'});
+        Course.hasMany(TimeSlot, {foreignKey: 'IDCourse'});
         TimeSlot.destroy({
             where: {
             IDCourse: req.body.lop
