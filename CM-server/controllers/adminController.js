@@ -25,7 +25,10 @@ module.exports = {
                 }
             })
             res.send(currentSemester);
-        })
+        }).catch(function (err) {
+        // handle error;
+        res.send(err.message);
+        });
     },
 
     //so phong hoc
@@ -246,7 +249,7 @@ module.exports = {
     //them, xoa, sua timeslot
     newTimeSlot: function(req, res, next) {
         Course.hasMany(TimeSlot, {foreignKey: 'IDCourse'});
-        var i;
+        var i,message;  
         for (i= req.body.tietbd; i<= req.body.tietkt; i++){
             TimeSlot.create({
             IDSemester: req.body.kyhoc,
@@ -254,8 +257,12 @@ module.exports = {
             Period: i,
             IDRoom: req.body.phong,
             IDCourse: req.body.lop
-            }).then();
+            }).then().catch(function (err) {
+            // handle error;
+            console.log(err.message);
+            })
         }
+        res.send("request handled");
     },
     deleteTimeSlot: function(req, res, next) {
         Course.hasMany(TimeSlot, {foreignKey: 'IDCourse'});
@@ -276,7 +283,7 @@ module.exports = {
             IDCourse: req.body.lop
             }
         }).then();
-        var i;
+        var i, message;
         for (i= req.body.tietbd; i<= req.body.tietkt; i++){
             TimeSlot.create({
             IDSemester: req.body.kyhoc,
@@ -284,9 +291,12 @@ module.exports = {
             Period: i,
             IDRoom: req.body.phong,
             IDCourse: req.body.lop
-            }).then();
+            }).then().catch(function (err) {
+            // handle error;
+            console.log(err.message);
+            })
         }
-        res.send('success');
+        res.send("request handled");
     },
 
     importFromCSV: function(req, res, next) {
@@ -296,5 +306,4 @@ module.exports = {
     }
 
 
-    
 }
