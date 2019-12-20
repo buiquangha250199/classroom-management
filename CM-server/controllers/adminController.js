@@ -14,6 +14,20 @@ const database = require('../config/database.js');
 const importCSV = require('./importCSV.js');
 
 module.exports = {
+    //ky hoc hien tai
+    currentSemester: function(req, res, next) {
+        Semester.findAll().then(result => {
+            var currentTime = new Date();
+            var currentSemester;
+            result.forEach((resultItem) => {
+                if ((currentTime > Date.parse(resultItem.StartDate)) && (currentTime < Date.parse(resultItem.EndDate))){
+                    currentSemester = resultItem;
+                }
+            })
+            res.send(currentSemester);
+        })
+    },
+
     //so phong hoc
     totalRoom: function(req, res, next) {
     	Room.count()
@@ -240,13 +254,8 @@ module.exports = {
             Period: i,
             IDRoom: req.body.phong,
             IDCourse: req.body.lop
-            }).then()
-            .catch(function (err) {
-            // handle error;
-            res.send(err.message);
-            });
+            }).then();
         }
-        res.send('success');
     },
     deleteTimeSlot: function(req, res, next) {
         Course.hasMany(TimeSlot, {foreignKey: 'IDCourse'});
@@ -266,11 +275,7 @@ module.exports = {
             where: {
             IDCourse: req.body.lop
             }
-        }).then()
-        .catch(function (err) {
-        // handle error;
-        res.send(err.message);
-        });
+        }).then();
         var i;
         for (i= req.body.tietbd; i<= req.body.tietkt; i++){
             TimeSlot.create({
@@ -279,11 +284,7 @@ module.exports = {
             Period: i,
             IDRoom: req.body.phong,
             IDCourse: req.body.lop
-            }).then()
-            .catch(function (err) {
-            // handle error;
-            res.send(err.message);
-            });
+            }).then();
         }
         res.send('success');
     },
