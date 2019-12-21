@@ -25,13 +25,13 @@ angular.module(componentName, ['ngRoute', service])
         };
      }]);
 
-function UploadDataController($scope, $location, fileUpload , $rootScope) {
+function UploadDataController($scope, $location, CallApiService , $rootScope) {
     let self = this;
 
-     $scope.uploadFile = function(){
-           var file = $scope.myFile;
-           var uploadUrl = "http://localhost:3000/admin/importFromCSV";
-           fileUpload.uploadFileToUrl(file, uploadUrl);
+    self.upload = function(){
+
+          window.location.href = "http://localhost:8080/#!/admin/dashboard";
+           
         };
 
     

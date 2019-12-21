@@ -12,87 +12,18 @@
 </div>
 <div id="page-inner">
 
+
     <div class="row">
         <h2 class="text-center">Upload dữ liệu</h2>
 
-        <form class="form-inline text-center content" method='POST' enctype='multipart/form-data' action="">
-            <div class="form-group mx-sm-3 mb-2">
-                <div class="form-group mx-sm-3 mb-2">
-                <div class="form-group">
-                    <label for="">Nhập danh sách phòng học</label>
-                    <input type="file" class="form-control-file" id="">
-                </div>
-            </div>
-            </div>
-            <button type="submit" class="btn btn-primary" ng-click="">Upload</button>
-            <button type="reset" class="btn btn-default">Reset</button>
-        </form>
-        
-        <form class="form-inline text-center content">
-            <div class="form-group mx-sm-3 mb-2">
-                <div class="form-group">
-                    <label for="">Nhập danh sách giảng viên</label>
-                    <input type="file" class="form-control-file" id="">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Upload</button>
-            <button type="reset" class="btn btn-default">Reset</button>
-        </form>
+        <h3>Choose file and model of file and submit!</h3>
+        <br>
 
-        <form class="form-inline text-center content">
-            <div class="form-group mx-sm-3 mb-2">
-                <div class="form-group">
-                    <label for="">Nhập danh sách kỳ học</label>
-                    <input type="file" class="form-control-file" id="">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Upload</button>
-            <button type="reset" class="btn btn-default">Reset</button>
-        </form>
-
-        <form class="form-inline text-center content">
-            <div class="form-group mx-sm-3 mb-2">
-                <div class="form-group">
-                    <label for="">Nhập danh sách sinh viên</label>
-                    <input type="file" class="form-control-file" id="">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Upload</button>
-            <button type="reset" class="btn btn-default">Reset</button>
-        </form>
-
-        <form class="form-inline text-center content">
-            <div class="form-group mx-sm-3 mb-2">
-                <div class="form-group">
-                    <label for="">Nhập danh sách môn học</label>
-                    <input type="file" class="form-control-file" id="">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Upload</button>
-            <button type="reset" class="btn btn-default">Reset</button>
-        </form>
-
-        <form class="form-inline text-center content">
-            <div class="form-group mx-sm-3 mb-2">
-                <div class="form-group">
-                    <label for="">Nhập dữ liệu sinh viên - môn học</label>
-                    <input type="file" class="form-control-file" id="">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Upload</button>
-            <button type="reset" class="btn btn-default">Reset</button>
-        </form>
-
-        <form class="form-inline text-center content">
-            <div class="form-group mx-sm-3 mb-2">
-                <div class="form-group">
-                    <label for="">Nhập dữ liệu timeslot</label>
-                    <input type="file" class="form-control-file" id="">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Upload</button>
-            <button type="reset" class="btn btn-default">Reset</button>
-        </form>
+    <form method='post' action='http://localhost:3000/admin/importFromCSV' enctype="multipart/form-data">
+        <input type='file' name='file'>
+        <input type="text" name='model' placeholder="Ex: room.csv and room model">
+        <input type='submit' ng-click="self.upload()">
+    </form>
     
 
 </div>

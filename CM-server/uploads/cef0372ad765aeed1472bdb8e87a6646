@@ -1,0 +1,19 @@
+IDRoom,RoomName,Address,InUse,Capacity
+1,101G2,Tòa nhà G2,Chưa thể sử dụng,50
+2,102G2,Tòa nhà G2,Có thể sử dụng,50
+3,201G2,Tòa nhà G2,Có thể sử dụng,40
+4,202G2,Tòa nhà G2,Có thể sử dụng,40
+5,203G2,Tòa nhà G2,Có thể sử dụng,40
+6,204G2,Tòa nhà G2,Có thể sử dụng,40
+7,201GD3,Tòa nhà GD3,Chưa thể sử dụng,40
+8,202GD3,Tòa nhà GD3,Có thể sử dụng,40
+9,203GD3,Tòa nhà GD3,Có thể sử dụng,40
+10,204GD3,Tòa nhà GD3,Có thể sử dụng,40
+11,205GD3,Tòa nhà GD3,Có thể sử dụng,40
+12,206GD3,Tòa nhà GD3,Có thể sử dụng,40
+13,207GD3,Tòa nhà GD3,Có thể sử dụng,40
+14,301GD2,Tòa nhà GD2,Có thể sử dụng,60
+15,302GD2,Tòa nhà GD2,Có thể sử dụng,60
+16,303GD2,Tòa nhà GD2,Có thể sử dụng,60
+17,301G2,Tòa nhà G2,Có thể sử dụng,60
+18,302G2,Tòa nhà G2,Có thể sử dụng,60
