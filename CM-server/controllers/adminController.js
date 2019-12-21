@@ -207,6 +207,14 @@ module.exports = {
         });
     },
 
+    roomUseCase: function(req, res, next) {
+        TimeSlot.findAll({
+            where:{
+                IDRoom: req.body.phong
+            }
+        }).then(result =>res.json(result));
+    },
+
     // timeslot cua phong
     roomUseCase: function(req, res, next) {
     	TimeSlot.findAll({
