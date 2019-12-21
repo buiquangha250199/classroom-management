@@ -51,7 +51,7 @@ function NewTimetableController($scope, $location, CallApiService, $rootScope) {
 	CallApiService.Get('http://localhost:3000/admin/timeslot/list', function (res) {
 		if (res.status == 200) {
 			self.listTimeslot = res.data;
-			console.log(self.listTimeslot);
+			//console.log(self.listTimeslot);
 		} else {
 			console.log(res.status);
 		}

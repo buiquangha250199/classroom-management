@@ -29,7 +29,7 @@ function RoomDetailsController($scope, $location, CallApiService, $rootScope) {
 		CallApiService.Get(url , function (res) {
 			if (res.status == 200) {
 				self.listUseRoom = res.data;
-				console.log(self.listUseRoom);
+				//console.log(self.listUseRoom);
 			} else {
 				console.log(res.status);
 			}
