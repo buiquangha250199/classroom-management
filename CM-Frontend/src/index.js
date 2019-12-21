@@ -16,7 +16,6 @@ const DeleteSubject = require('./delete-subject');
 const UpLoadData = require('./upload-data');
 
 const NewTimetable = require('./new-timetable');
-const EditTimetable = require('./edit-timetable');
 const DeleteTimetable = require('./delete-timetable');
 
 angular.module(componentName, 
@@ -24,7 +23,7 @@ angular.module(componentName,
         'ngRoute', DashboardPage,  
         NewRoom, EditRoom, DeleteRoom,
         NewSubject, EditSubject, DeleteSubject,
-        UpLoadData, NewTimetable, EditTimetable, DeleteTimetable
+        UpLoadData, NewTimetable, DeleteTimetable
     ]
 );
 

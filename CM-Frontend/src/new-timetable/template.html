@@ -30,7 +30,7 @@
                 <label >Search</label>
                 <input type="text" ng-model="courseSearchKey" class="form-control" placeholder="Search">
               </div>
-            </form>
+
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -55,8 +55,9 @@
                 </tr>
               </thead>
               <tbody>
-                <form action="" role="form">
                 <tr dir-paginate="t in self.listTimeslot|orderBy:self.sortKey:self.reverse|filter:courseSearchKey|itemsPerPage:10" ng-click="self.getInfo(t.IDCourse, t.IDSemester)">
+
+                <form action="" role="form">
                   <td>{{t.IDCourse}}</td>
                   <td>{{t.SubjectName}}</td>
                   <td>{{t.Lecturer.Name}}</td>
@@ -91,7 +92,7 @@
                   <button type="submit" class="btn btn-primary in-dropdown" ng-click="self.addTimeslot()"><i class="fas fa-plus"></i> Thêm</button>
                 </td>
               </tr>
-              </form>
+              
             </tbody>
           </table> 
           <dir-pagination-controls

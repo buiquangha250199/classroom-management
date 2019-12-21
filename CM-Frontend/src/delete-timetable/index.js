@@ -5,29 +5,22 @@ const service = require('../app-service/index.js');
 
 angular.module(componentName, ['ngRoute', service])
   .component("deleteTimetable", {
-    controller: DeleteTimetableController,
+    controller: deleteTimetableController,
     controllerAs: "self",
     template: require("./template.html"),
     style: require("./style.css")
   });
 
-function DeleteTimetableController($scope, $location, CallApiService, $rootScope) {
+function deleteTimetableController($scope, $location, CallApiService, $rootScope) {
 
 	let self = this;
 
-	self.slot = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
-
-	self.sort = function(keyname){
-		self.sortKey = keyname;   //set the sortKey to the param passed
-		self.reverse = !self.reverse; //if true make it false and vice versa
-	}
-
-	CallApiService.Get('http://localhost:3000/admin/totalRoom', function (res) {
+	CallApiService.Get('http://localhost:3000/admin/timeslot/list', function (res) {
 		if (res.status == 200) {
-			self.totalRoom = res.data;
+			self.listTimeslot = res.data;
+			console.log(self.listTimeslot);
 		} else {
 			console.log(res.status);
-
 		}
 	});
 
@@ -39,43 +32,113 @@ function DeleteTimetableController($scope, $location, CallApiService, $rootScope
 		}
 	});
 
-	CallApiService.Get('http://localhost:3000/admin/timeslot/list', function (res) {
+	CallApiService.Get('http://localhost:3000/admin/semester/list', function (res) {
 		if (res.status == 200) {
-			self.listTimeslot = res.data;
-			console.log(self.listTimeslot);
+			self.listSemester = res.data;
+			self.semester = self.listSemester[1].IDSemester;
+			self.semesterName = self.listSemester[1].SemesterName;
 		} else {
 			console.log(res.status);
 		}
 	});
 
-	self.getInfo = function (_IDCourse, _IDSemester) {
-		self.IDCourse = _IDCourse;
-		self.IDSemeter = _IDSemester;
+	self.getRoom = function () {
+		for(let i = 0; i< self.listRoom.length; i++) {
+			if(self.listRoom[i].RoomName == self.RoomName) {
+				
+				self.IDRoom = self.listRoom[i].IDRoom;
+			}
+		}
+
+		// console.log(r);
 	}
 
-	self.addTimeslot = function () {
+	// self.getRoomName = function () {
+	// 	for(let i = 0; i< self.listRoom.length; i++) {
+	// 		if(self.listRoom[i].IDRoom == self.IDRoom) {
+				
+	// 			self.RoomName = self.listRoom[i].RoomName;
+	// 		}
+	// 	}
+
+	// 	// console.log(r);
+	// }
+
+	self.getInfo = function () {
+
+		for(let i =0; i<self.listTimeslot.length; i++) {
+			if(self.listTimeslot[i].CourseName == self.CourseName) {
+				self.timeslots = self.listTimeslot[i].TimeSlots;
+				self.IDCourse = self.listTimeslot[i].IDCourse;
+				self.IDRoom = self.listTimeslot[i].IDRoom;
+			}
+		}
+
+		 console.log(self.timeslots);
+		//console.log(self.IDRoom);
+
+		self.slotArr = [];
+
+		for(let i =0; i<self.timeslots.length; i++) {
+			if(self.IDCourse == self.timeslots[i].IDCourse) {
+				self.slotArr.push(self.timeslots[i].Period);
+				self.day = self.timeslots[i].Day;
+				self.IDRoom = self.timeslots[i].IDRoom;
+			}
+		}	
+
+		for(let i = 0; i< self.listRoom.length; i++) {
+			if(self.listRoom[i].IDRoom == self.IDRoom) {
+				
+				self.RoomName = self.listRoom[i].RoomName;
+			}
+		}
+
+		//console.log(self.RoomName);
+	
+
+	}
+
+	self.getPeriod = function () {
+
+		self.tietbd = undefined;
+		self.tietkt = undefined;
+		self.RoomName = undefined;
+
+		if(self.thu == self.day) {
+			self.tietbd = self.slotArr[0];
+			self.tietkt = self.slotArr[self.slotArr.length-1];
+		}
+		 
+	}
+
+	self.editTimeslot = function () {
 		let data = {
-			tietbd: self.tietbd,
-			tietkt: self.tietkt,
-            kyhoc: self.IDSemeter,
-            thu: self.thu,
-            phong: self.IDRoom,
-            lop: self.IDCourse
-        }
+			"kyhoc": self.semester,
+			"tietbd": self.tietbd,
+			"tietkt": self.tietkt,
+			"thu": self.thu,
+			"phong": self.IDRoom,
+			"lop":self.IDCourse
+		}
 
-     	console.log(data);
+		console.log(data);
 
-     	CallApiService.Post('http://localhost:3000/admin/timeslot/new', data, function (res) {
+		CallApiService.Delete("http://localhost:3000/admin/timeslot/delete", data, function (res) {
+			console.log(data);
+			console.log(res);
 			if (res.status == 200) {
 				self.message = "Thao tác thành công!";
 				self.typeMessage = "success";
-				console.log(res);
-				//setTimeout(function(){ location.reload(); }, 500);
-			} else {
-				console.log(res.status);
-			}
-		});
-    }
+    			//setTimeout(function(){ location.reload(); }, 1000);
+    		} else {
+    			self.message = "Thao tác thất bại!";
+    			self.typeMessage = "danger";
+    		}
+    	})
+
+    	
+	}
 
     
 

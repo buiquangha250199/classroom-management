@@ -83,6 +83,24 @@ angular.module(moduleName, [])
     
 }])
 
+.service('fileUpload', ['$http', function ($http) {
+        this.uploadFileToUrl = function(file, uploadUrl){
+           var fd = new FormData();
+           fd.append('file', file);
+           $http.post(uploadUrl, fd, {
+              transformRequest: angular.identity,
+              headers: {'Content-Type': undefined},
+              data: {
+                'model':'room'
+              }
+           })
+           .success(function(){
+           })
+           .error(function(){
+           });
+        }
+     }])
+
 .factory('AuthenticationService', ['$http', '$rootScope', function ($http, $rootScope) {
 
     var service = {};
@@ -165,9 +183,6 @@ angular.module(moduleName, [])
     })
     .when("/admin/timetable/new", {
         template : '<new-timetable></new-timetable>'
-    })
-    .when("/admin/timetable/edit", {
-        template : '<edit-timetable></edit-timetable>'
     })
     .when("/admin/timetable/delete", {
         template : '<delete-timetable></delete-timetable>'

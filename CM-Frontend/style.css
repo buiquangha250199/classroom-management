@@ -14,6 +14,7 @@ body {
     padding: 15px 15px;
     min-height: 600px;
     background: #E8E8E8;
+    margin-right: -130px;
 }
 #page-inner {
     width:100%;
@@ -645,12 +646,11 @@ div.alert {
     text-align: center;
 }
 
-form.ng-pristine.ng-invalid.ng-invalid-required {
+form.content {
     border: 1px solid chocolate;
     padding: 30px;
     color: darkcyan;
 }
-
 
 .pagination {
     float:right;

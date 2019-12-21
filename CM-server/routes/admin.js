@@ -27,6 +27,7 @@ router.get('/', function(req, res, next) {
   router.get('/course/list', adminController.allCourse);
   router.get('/semester/list', adminController.allSemester);
   router.get('/timeslot/list', adminController.allCourseTime);
+  router.get('/semester/current', adminController.currentSemester);
 
   router.post('/course/new', adminController.newCourse);
   router.post('/room/new', adminController.newRoom);

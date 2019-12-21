@@ -14,6 +14,16 @@ angular.module(componentName, ['ngRoute', service])
 function DeleteSubjectController($scope, $location, CallApiService, $rootScope) {
     let self = this;
 
+    CallApiService.Get('http://localhost:3000/admin/semester/current', function (res) {
+		if (res.status == 200) {
+			self.currentSemester = res.data;
+			self.semesterName = self.currentSemester.SemesterName;
+			self.IDSemester = self.currentSemester.IDSemester;
+		} else {
+			console.log(res.status);
+		}
+	});
+
     CallApiService.Get('http://localhost:3000/admin/course/list', function (res) {
 		if (res.status == 200) {
 			self.listCourse = res.data;
@@ -25,16 +35,6 @@ function DeleteSubjectController($scope, $location, CallApiService, $rootScope) 
 	CallApiService.Get('http://localhost:3000/admin/lecturer/list', function (res) {
 		if (res.status == 200) {
 			self.listLecturer = res.data;
-		} else {
-			console.log(res.status);
-		}
-	});
-
-	CallApiService.Get('http://localhost:3000/admin/semester/list', function (res) {
-		if (res.status == 200) {
-			self.listSemester = res.data;
-			self.semester = self.listSemester[1].IDSemester;
-			self.semesterName = self.listSemester[1].SemesterName;
 		} else {
 			console.log(res.status);
 		}

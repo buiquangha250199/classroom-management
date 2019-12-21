@@ -22,14 +22,11 @@ function NewSubjectController($scope, $location, CallApiService, $rootScope) {
 		}
 	});
 
-	CallApiService.Get('http://localhost:3000/admin/semester/list', function (res) {
+	CallApiService.Get('http://localhost:3000/admin/semester/current', function (res) {
 		if (res.status == 200) {
-			self.listSemester = res.data;
-			self.semester = self.listSemester[1].IDSemester;
-
-			self.semesterName = self.listSemester[1].SemesterName;
-			console.log(self.semester);
-			
+			self.currentSemester = res.data;
+			self.semesterName = self.currentSemester.SemesterName;
+			self.IDSemester = self.currentSemester.IDSemester;
 		} else {
 			console.log(res.status);
 		}

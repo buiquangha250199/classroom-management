@@ -9,10 +9,30 @@ angular.module(componentName, ['ngRoute', service])
     controllerAs: "self",
     template: require("./template.html"),
     style: require("./style.css")
-  });
+  })
+	.directive('fileModel', ['$parse', function ($parse) {
+        return {
+           restrict: 'A',
+           link: function(scope, element, attrs) {
+              var model = $parse(attrs.fileModel);
+              var modelSetter = model.assign;
+              element.bind('change', function(){
+                 scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                 });
+              });
+           }
+        };
+     }]);
 
-function UploadDataController($scope, $location, AuthenticationService, $rootScope) {
+function UploadDataController($scope, $location, fileUpload , $rootScope) {
     let self = this;
+
+     $scope.uploadFile = function(){
+           var file = $scope.myFile;
+           var uploadUrl = "http://localhost:3000/admin/importFromCSV";
+           fileUpload.uploadFileToUrl(file, uploadUrl);
+        };
 
     
 
