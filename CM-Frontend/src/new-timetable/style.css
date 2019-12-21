@@ -11,7 +11,7 @@ new-timetable #page-inner {
 new-timetable .row {
     margin-right: -15px;
     margin-left: -15px;
-    
+    width: 600px;
 }
 
 new-timetable .text-center {

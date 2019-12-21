@@ -1,4 +1,4 @@
-timetable-man #page-inner {
+delete-timetable #page-inner {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -8,41 +8,15 @@ timetable-man #page-inner {
     min-height: 500px;
 }
 
-timetable-man .row {
+delete-timetable .row {
     margin-right: -15px;
     margin-left: -15px;
+    width: 600px;
     
 }
 
-timetable-man .text-center {
+delete-timetable .text-center {
     text-align: center;
     margin-bottom: 25px;
     color: chocolate;
-}
-
-timetable-man .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    float: left;
-    min-width: 139px;
-    padding: 5px 0;
-    /* margin: 2px 0 0; */
-    font-size: 14px;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: 4px;
-    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-    box-shadow: 0 6px 12px rgba(0,0,0,.175);
-}
-
-timetable-man button.in-dropdown {
-    width: 100%;
 }

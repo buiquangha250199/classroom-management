@@ -109,7 +109,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr dir-paginate="room in self.listRoom|orderBy:self.sortKey:self.reverse|filter:roomSearchKey|itemsPerPage:10">
+                        <tr dir-paginate="room in self.listRoom|filter:roomSearchKey|itemsPerPage:10">
                             <td>{{room.IDRoom}}</td>
                             <td>{{room.RoomName}}</td>
                             <td>{{room.Address}}</td>
@@ -167,7 +167,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr dir-paginate="l in self.listLecturer|orderBy:self.sortKey:self.reverse|filter:lecturerSearchKey|itemsPerPage:7">
+                        <tr dir-paginate="l in self.listLecturer|filter:lecturerSearchKey|itemsPerPage:7">
                             <td>{{l.IDLecturer}}</td>
                             <td>{{l.Name}}</td>
                             <td>{{l.DoB}}</td>
@@ -226,7 +226,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr dir-paginate="c in self.listCourse|orderBy:self.sortKey:self.reverse|filter:courseSearchKey|itemsPerPage:7">
+                    <tr dir-paginate="c in self.listCourse|filter:courseSearchKey|itemsPerPage:7">
                         <td>{{c.IDCourse}}</td>
                         <td>{{c.CourseName}}</td>
                         <td>{{c.SubjectName}}</td>
