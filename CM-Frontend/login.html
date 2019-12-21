@@ -7,9 +7,9 @@
 	<script src="./bower_components/angular/angular.min.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="src/assets/css/login.css">
 </head>
-<body>
+<body >
 
-  <div class="container">
+  <div class="container" ng-app="myLogin" ng-controller="login">
 
    <div class="form" id="login">  
 
@@ -23,22 +23,54 @@
         <div class="icon">
           <i class="fas fa-user" aria-hidden="true"></i>
         </div>
-        <input type="text" placeholder="Tên đăng nhập" required="" ng-model="self.username">
+        <input type="text" placeholder="Tên đăng nhập" ng-change="login()" required="" ng-model="ID">
       </div>
 
       <div class="input-form">
         <div class="icon">
           <i class="fa fa-lock" aria-hidden="true"></i>
         </div>
-        <input type="password" placeholder="Mật khẩu" required="" ng-model="self.password" required="">
+        <input type="password" placeholder="Mật khẩu" ng-change="login()" required="" ng-model="password" required="">
       </div>
-      <button id="submit" type="submit" ng-click="self.login()">Đăng nhập</button>
+      <button id="submit" type="{{type}}" >Đăng nhập</button>
     </form>
 
   </div>
 </div>
 
 
+<script>
 
+  var app = angular.module('myLogin', []);
+  app.controller('login', function($scope, $http, $location) {
+
+    $scope.type = 'button';
+  $scope.login = function () {
+    var req = {
+            method: 'POST',
+            url: "http://localhost:3000/signin/user/",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: {
+              ID: $scope.ID,
+              password: $scope.password
+            }
+        }
+
+        $http(req).then(function (res) {
+            //console.log($location.host());
+            //$location.path('/');
+
+            $scope.type = 'submit'
+
+        }, function (res) {
+            //event.preventDefault();
+            console.log(res);
+        }); 
+  }
+});
+  
+</script>
 </body>
 </html>
