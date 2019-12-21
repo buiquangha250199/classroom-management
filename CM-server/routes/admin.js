@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
   router.post('/importFromCSV',upload.single('file'), adminController.importFromCSV);
 
-  router.get('/totalRoom', isLoggedIn, adminController.totalRoom);
+  //router.get('/totalRoom', isLoggedIn, adminController.totalRoom);
   router.get('/totalRoom', adminController.totalRoom);
   router.get('/totalCourse', adminController.totalCourse);
   router.get('/totalLecturer', adminController.totalLecturer);
