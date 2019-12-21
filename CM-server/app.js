@@ -30,6 +30,30 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 
+// passport
+
+var passport   = require('passport');
+var session    = require('express-session');
+var bodyParser = require('body-parser');
+
+// For passport
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+ 
+app.use(passport.initialize());
+ 
+app.use(passport.session()); // persistent login sessions
+
+
+
+// Routes
+// =============================================================
+
+require("./routes/auth-routes.js")(app,passport);
+const Account = require('./models/Account.js');
+//load passport strategies
+require("./config/passport.js")(passport, Account);
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
