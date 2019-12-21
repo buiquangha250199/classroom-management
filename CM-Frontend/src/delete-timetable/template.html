@@ -36,7 +36,7 @@
 
         <div class="form-group">
             <label>Chọn thứ</label>
-            <select class="form-control" ng-model="self.thu" ng-click="self.getPeriod()">
+            <select class="form-control" ng-model="self.thu" ng-change="self.getPeriod()" >
                 <option value="2">Thứ Hai</option>
                 <option value="3">Thứ Ba</option>
                 <option value="4">Thứ Tư</option>
@@ -63,7 +63,7 @@
             </select>
         </div>
       </fieldset>
-      <button type="submit" class="btn btn-primary" ng-click="self.editTimeslot()">Submit </button>
+      <button type="submit" class="btn btn-primary" ng-click="self.deleteTimeslot()">Submit </button>
       <button type="reset" class="btn btn-default">Reset </button>
   </form>
 

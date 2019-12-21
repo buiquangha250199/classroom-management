@@ -11,7 +11,6 @@ router.get('/', function(req, res, next) {
     res.send('test');
 });
 
-  router.post('/roomUseCase', adminController.roomUseCase);
   router.post('/allCourseTime', adminController.allCourseTime);
   router.post('/newTimeSlot', adminController.newTimeSlot);
   router.post('/deleteTimeSlot', adminController.deleteTimeSlot);
@@ -48,6 +47,6 @@ router.get('/', function(req, res, next) {
 
     }
 
-
+  router.get('/room/:id', adminController.roomUseCase);
 
 module.exports = router ;

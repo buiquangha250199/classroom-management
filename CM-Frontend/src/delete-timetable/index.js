@@ -53,17 +53,6 @@ function deleteTimetableController($scope, $location, CallApiService, $rootScope
 		// console.log(r);
 	}
 
-	// self.getRoomName = function () {
-	// 	for(let i = 0; i< self.listRoom.length; i++) {
-	// 		if(self.listRoom[i].IDRoom == self.IDRoom) {
-				
-	// 			self.RoomName = self.listRoom[i].RoomName;
-	// 		}
-	// 	}
-
-	// 	// console.log(r);
-	// }
-
 	self.getInfo = function () {
 
 		for(let i =0; i<self.listTimeslot.length; i++) {
@@ -87,12 +76,12 @@ function deleteTimetableController($scope, $location, CallApiService, $rootScope
 			}
 		}	
 
-		for(let i = 0; i< self.listRoom.length; i++) {
-			if(self.listRoom[i].IDRoom == self.IDRoom) {
+		// for(let i = 0; i< self.listRoom.length; i++) {
+		// 	if(self.listRoom[i].IDRoom == self.IDRoom) {
 				
-				self.RoomName = self.listRoom[i].RoomName;
-			}
-		}
+		// 		self.RoomName = self.listRoom[i].RoomName;
+		// 	}
+		// }
 
 		//console.log(self.RoomName);
 	
@@ -108,11 +97,20 @@ function deleteTimetableController($scope, $location, CallApiService, $rootScope
 		if(self.thu == self.day) {
 			self.tietbd = self.slotArr[0];
 			self.tietkt = self.slotArr[self.slotArr.length-1];
+
+
+		for(let i = 0; i< self.listRoom.length; i++) {
+			if(self.listRoom[i].IDRoom == self.IDRoom) {
+				
+				self.RoomName = self.listRoom[i].RoomName;
+			}
+		}
+
 		}
 		 
 	}
 
-	self.editTimeslot = function () {
+	self.deleteTimeslot = function () {
 		let data = {
 			"kyhoc": self.semester,
 			"tietbd": self.tietbd,
