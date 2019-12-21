@@ -178,8 +178,8 @@ angular.module(moduleName, [])
     .when("/admin/subject/delete", {
         template : '<delete-subject></delete-subject>'
     })
-    .when("/admin/subject/:id", {
-        template : '<subject-details></subject-details>'
+    .when("/admin/room/use", {
+        template : '<room-details></room-details>'
     })
     .when("/admin/timetable/new", {
         template : '<new-timetable></new-timetable>'

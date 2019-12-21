@@ -1,0 +1,70 @@
+<div id="page-wrapper">
+    <div class="header"> 
+        <h1 class="page-header">
+            Phòng học <small>Chi tiết</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="">Admin</a></li>
+            <li><a href="">Room</a></li>
+            <li class="active">Use</li>
+        </ol> 
+
+    </div>
+    <div id="page-inner">
+
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-12">
+        <!-- Advanced Tables -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              Phòng học {{self.RoomName}}
+         </div>
+
+        <div class="form-group">
+            <label>Chọn phòng</label>
+            <select class="form-control" ng-model="self.IDRoom" 
+                    ng-click="self.getInfo()">
+                <option ng-repeat="r in self.listRoom" value="{{r.IDRoom}}">{{r.RoomName}}</option>
+            </select>
+        </div>
+         <div class="panel-body">
+            <div class="bs-component">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Thứ</th>
+                            <th>Tiết</th>
+                            <th>Mã môn học</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="room in self.listUseRoom|filter:roomSearchKey|itemsPerPage:10">
+                        	<td>Thứ {{room.Day}}</td>
+                            <td>Tiết {{room.Period}}</td>
+                            <td>{{room.IDCourse}}</td> 
+                        </tr>
+                    </tbody>
+                </table> 
+                <dir-pagination-controls
+                max-size="10"
+                direction-links="true"
+                boundary-links="true" >
+            </dir-pagination-controls>
+        </div>
+
+    </div>
+</div>
+<!--End Advanced Tables -->
+</div>
+</div>
+
+
+
+</div>
+
+<!-- /. PAGE INNER  -->
+<footer><p>Đại học Công nghệ - ĐHQGHN</p></footer>
+</div>

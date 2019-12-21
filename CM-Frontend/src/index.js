@@ -18,12 +18,14 @@ const UpLoadData = require('./upload-data');
 const NewTimetable = require('./new-timetable');
 const DeleteTimetable = require('./delete-timetable');
 
+const RoomDetails = require('./room-details');
+
 angular.module(componentName, 
     [
         'ngRoute', DashboardPage,  
         NewRoom, EditRoom, DeleteRoom,
         NewSubject, EditSubject, DeleteSubject,
-        UpLoadData, NewTimetable, DeleteTimetable
+        UpLoadData, NewTimetable, DeleteTimetable, RoomDetails
     ]
 );
 
