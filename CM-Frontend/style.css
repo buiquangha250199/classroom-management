@@ -603,6 +603,12 @@ line-height: 1.428571429;
 }
  @media(max-width:480px) {
 
+  .navbar-side {
+        width: 260px;
+        z-index: 1;
+        top: 115px;
+    }
+
 
 h1.page-header {
     margin-top: 80px;
@@ -654,4 +660,8 @@ form.content {
 
 .pagination {
     float:right;
+}
+
+td.ng-binding {
+    word-break: break-word;
 }

@@ -20,8 +20,30 @@ upload-data .text-center {
     color: chocolate;
 }
 
-upload-data form.form-inline.text-center{
+upload-data form.ng-pristine.ng-valid {
     border: 1px solid chocolate;
     color: darkcyan;
     padding: 10px;
+}
+
+upload-data h3 {
+    text-align: center;
+}
+
+upload-data input[type=file] {
+    margin: 2% 22.5%;
+    width: 250px;
+    display: block;
+}
+
+upload-data input[type="text"] {
+    margin: 2% 22.5%;
+    width: 250px;
+    display: block;
+}
+
+upload-data button {
+    margin: 2% 22.5%;
+    width: 250px;
+    display: block;
 }

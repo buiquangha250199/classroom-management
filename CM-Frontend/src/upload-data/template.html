@@ -14,15 +14,16 @@
 
 
     <div class="row">
+
+    <form method='post' action='http://localhost:3000/admin/importFromCSV' enctype="multipart/form-data">
         <h2 class="text-center">Upload dữ liệu</h2>
 
         <h3>Choose file and model of file and submit!</h3>
         <br>
 
-    <form method='post' action='http://localhost:3000/admin/importFromCSV' enctype="multipart/form-data">
         <input type='file' name='file'>
-        <input type="text" name='model' placeholder="Ex: room.csv and room model">
-        <input type='submit' ng-click="self.upload()">
+        <input type="text" name='model' placeholder="Ex: room">
+        <button type="submit" ng-click="self.upload()" class="btn btn-primary">Upload</button> 
     </form>
     
 
